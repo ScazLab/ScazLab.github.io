@@ -33,7 +33,7 @@ comments: false
   <div class="entry-content">
     {{ post.excerpt }}
 
-    <span class="ellipsis"><a href="{{ post.link }}">...</a></span>
+    <span class="ellipsis"><a href="{{ site.url }}{{ post.url }}">...</a></span>
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 {% endfor %}
