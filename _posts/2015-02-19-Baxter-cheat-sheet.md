@@ -43,4 +43,4 @@ image:
 # Collaboration
 
 - **Please edit this file** to add things you think are going to be useful. You can edit it by modifying [this file](https://github.com/ScazLab/ScazLab.github.io/blob/master/_posts/2015-02-19-Baxter-cheat-sheet.md)
-- Please get registered to [scazlab.slack.com/#baxter](https://scazlab.slack.com/messages/baxter/) channel.
+- Please register to the [scazlab.slack.com/#baxter](https://scazlab.slack.com/messages/baxter/) channel.
