@@ -14,7 +14,7 @@ excerpt_separator: <!-- More -->
 
 - Baxter uses [ROS indigo](http://wiki.ros.org/indigo). Installation:
   - According to ROS: <http://wiki.ros.org/indigo/Installation/Ubuntu>
-  - According to Alessandro: <http://alecive.github.io/blog/2015/11/12/ROS-naive-installation>, <http://wiki.ros.org/jade/Installation/Source>
+  - According to Alessandro: <http://alecive.github.io/blog/2015/11/12/ROS-naive-installation>, <http://wiki.ros.org/indigo/Installation/Source>
 - Baxter:
   - [Setup](http://sdk.rethinkrobotics.com/wiki/Workstation_Setup) (see the following for the setup)
   - [Hello Baxter](http://sdk.rethinkrobotics.com/wiki/Hello_Baxter)
