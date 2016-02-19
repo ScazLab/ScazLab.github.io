@@ -26,10 +26,8 @@ menu:
   - title: 'Favorites'
     url: '#'
     submenu:
-      - title: 'Code Highlighter'
-        url: '/intro/code-highlighting-post/'
-      - title: 'Sample Post'
-        url: '/intro/sample-post/'
+      - title: 'Baxter cheat sheet'
+        url: '/wiki/Baxter-cheat-sheet/'
 
 # Owner/author information
 owner:

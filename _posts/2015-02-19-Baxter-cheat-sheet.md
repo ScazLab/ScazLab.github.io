@@ -4,7 +4,10 @@ title: Baxter cheat sheet
 author: Olivier Mangin
 description: "Cheat sheet for the baxter robot"
 tags: [baxter,robot,tutorial]
+categories: [wiki]
 comments: false
+image:
+  feature: baxter_tictactoe.jpg
 ---
 
 # Useful links
