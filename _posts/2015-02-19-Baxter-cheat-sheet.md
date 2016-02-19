@@ -31,26 +31,16 @@ image:
 
 # Quick reminders
 
-- [(Un/)Tuck](https://github.com/RethinkRobotics/sdk-docs/wiki/Tuck-Arms-Example):
-  ```bash
-  rosrun baxter_tools tuck_arms.py -t # and -u
-  ```
-- [Enable / Disable](http://sdk.rethinkrobotics.com/wiki/Enable_Robot_Tool):
-  ```bash
-  rosrun baxter_tools enable_robot.py -e # and -d
-  ```
-- [Cameras](http://sdk.rethinkrobotics.com/wiki/API_Reference#Cameras): through topics
-  ```
-  /cameras/head_camera/image
-  /cameras/right_hand_camera/image
-  /cameras/left_hand_camera/image
-  ```
+- [(Un/)Tuck](https://github.com/RethinkRobotics/sdk-docs/wiki/Tuck-Arms-Example): `rosrun baxter_tools tuck_arms.py -t # and -u`
+
+- [Enable / Disable](http://sdk.rethinkrobotics.com/wiki/Enable_Robot_Tool): `rosrun baxter_tools enable_robot.py -e # and -d`
+
+- [Cameras](http://sdk.rethinkrobotics.com/wiki/API_Reference#Cameras): through topics `/cameras/head_camera/image`, `/cameras/right_hand_camera/image`, `/cameras/left_hand_camera/image`
+
 - [Screen](http://sdk.rethinkrobotics.com/wiki/API_Reference#Screen_.28xdisplay.29): just push images to `/robot/xdisplay` or execute
-  ```bash
-  rosrun baxter_examples xdisplay_image.py --file=image.png`
-  ```
+  `rosrun baxter_examples xdisplay_image.py --file=image.png`
 
 # Collaboration
 
-- Please edit this file.
-- Please get registered to [scazlab.slack.com/#baxter](https://scazlab.slack.com/messages/baxter/).
+- **Please edit this file** to add things you think are going to be useful. You can edit it by modifying [this file](https://github.com/ScazLab/ScazLab.github.io/blob/master/_posts/2015-02-19-Baxter-cheat-sheet.md)
+- Please get registered to [scazlab.slack.com/#baxter](https://scazlab.slack.com/messages/baxter/) channel.
