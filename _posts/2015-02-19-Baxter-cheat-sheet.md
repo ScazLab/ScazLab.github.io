@@ -8,8 +8,8 @@ categories: [wiki]
 comments: false
 image:
   feature: baxter_tictactoe.jpg
+excerpt_separator: <!-- More -->
 ---
-
 # Useful links
 
 - Baxter uses [ROS indigo](http://wiki.ros.org/indigo). Installation:
@@ -20,6 +20,8 @@ image:
   - [Hello Baxter](http://sdk.rethinkrobotics.com/wiki/Hello_Baxter)
   - [Baxter API](http://sdk.rethinkrobotics.com/wiki/API_Reference)
 - [Alessandro's ROS tips and tricks](http://alecive.github.io/blog/2016/02/08/ROS-concepts/)
+
+<!-- More -->
 
 # Facts
 

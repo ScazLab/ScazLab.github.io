@@ -154,3 +154,8 @@ figure.center img{
   border: 1px solid $comp-color;
   @include rounded(4px);
 }
+
+.ellipsis {
+  display: block;
+  text-align: center;
+}
