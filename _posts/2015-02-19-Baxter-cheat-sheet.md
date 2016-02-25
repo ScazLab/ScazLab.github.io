@@ -37,7 +37,13 @@ excerpt_separator: <!-- More -->
 
 - [Enable / Disable](http://sdk.rethinkrobotics.com/wiki/Enable_Robot_Tool): `rosrun baxter_tools enable_robot.py -e # and -d`
 
-- [Cameras](http://sdk.rethinkrobotics.com/wiki/API_Reference#Cameras): through topics `/cameras/head_camera/image`, `/cameras/right_hand_camera/image`, `/cameras/left_hand_camera/image`
+- [Cameras](http://sdk.rethinkrobotics.com/wiki/API_Reference#Cameras): through topics:
+
+  ~~~
+  /cameras/head_camera/image
+  /cameras/right_hand_camera/image
+  /cameras/left_hand_camera/image
+  ~~~
 
 - [Screen](http://sdk.rethinkrobotics.com/wiki/API_Reference#Screen_.28xdisplay.29): just push images to `/robot/xdisplay` or execute
   `rosrun baxter_examples xdisplay_image.py --file=image.png`

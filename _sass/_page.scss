@@ -30,6 +30,25 @@ body {
 	}
 }
 
+.video-container,
+.pdf-container {
+    position: relative;
+    padding-bottom: 66.25%;
+    padding-top: 10px;
+    height: 0;
+    overflow: hidden;
+}
+ 
+.video-container iframe,
+.pdf-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
 .entry-date {
 	color: $white;
 }
