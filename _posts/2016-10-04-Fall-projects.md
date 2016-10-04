@@ -4,7 +4,7 @@ title: 2016 Fall Projects
 author: Olivier Mangin & Alessandro Roncone
 description: "Fall projects for students at the Social Robotics Lab"
 tags: [baxter,robot,projects]
-categories: [wiki]
+categories: [projects]
 comments: false
 image:
   feature: flatpack-pass.jpg
@@ -20,3 +20,32 @@ A background in cognitive sciences, psychology, computer science, mathematics, o
 <!-- More -->
 
 Here is a list of tasks we would typically need your help on.
+=======
+
+## Available projects
+
+### User Study
+
+We are close to start a 40 people user study to investigate
+
+### Improvements to the Baxter Software
+
+We are looking for two/three people to work on robotics engineering tasks with the Baxter robot. The following is a non-exhaustive list of potential projects:
+
+#### Perception
+
+Currently, the perception system relies on fiducial marker tracking (see below)
+
+#### Control
+
+Improve the robot's action capabilities:
+
+#### Human-Robot Interaction
+
+### Support on ideation/implementation of new/more complex interaction scenarios
+
+
+
+### Research projects
+
+We have multiple ideas we would like to investigate in the medium term. If you're interested, we can talk about a research project to do under our supervision, which hopefully should lead to a publication.
