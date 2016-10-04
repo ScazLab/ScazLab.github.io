@@ -26,7 +26,7 @@ Here is a list of tasks we would typically need your help on.
 
 ### User Study
 
-We are close to start a 40 people user study to investigate
+We are close to start a 40 people user study to investigate when communication is useful to overcome uncertainty in collaboration.
 
 ### Improvements to the Baxter Software
 
@@ -34,17 +34,19 @@ We are looking for two/three people to work on robotics engineering tasks with t
 
 #### Perception
 
-Currently, the perception system relies on fiducial marker tracking (see below)
+Currently, the perception system relies on fiducial marker tracking (see below). A lot of other things need to be perceived in a collaborative scene.
 
 #### Control
 
-Improve the robot's action capabilities:
+Improve the robot's action capabilities. For example implementing more diverse grasping behaviors for more actions.
 
 #### Human-Robot Interaction
 
+In particular we are planning to investigate actions that are highly collaborative: action in which each participant has to continuously adapt and react to their teammates' behaviors. Typical such actions are supportive actions like holding a part for someone else working on it.
+
 ### Support on ideation/implementation of new/more complex interaction scenarios
 
-
+We are working on new experimental scenarios and need help on designing these. This includes things as diverse as participating to the general setup of the experiment to designing parts of building tasks as well as 3D printing, laser cutting and painting them!
 
 ### Research projects
 
