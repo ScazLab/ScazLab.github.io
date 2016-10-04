@@ -7,7 +7,7 @@ tags: [baxter,robot,projects]
 categories: [wiki]
 comments: false
 image:
-  feature: baxter_tictactoe.jpg
+  feature: flatpack-pass.jpg
 excerpt_separator: <!-- More -->
 ---
 
