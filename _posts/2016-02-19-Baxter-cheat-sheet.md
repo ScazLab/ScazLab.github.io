@@ -23,6 +23,15 @@ excerpt_separator: <!-- More -->
 
 <!-- More -->
 
+# Software Infrastructure
+
+This is the software infrastructure that we are currently using to perform human-robot collaborative tasks with the Baxter robot:
+
+- The interface with the Baxter (low level) is done in [this repository](github.com/scazlab/baxter_collaboration). In there, both perception and control are taken care of.
+- High level POMDP planning is done in [this repository](https://github.com/scazlab/htm).
+
+They are public repositories, but to work on them you need to be either a member of the scazlab organization or to be a contributor for the specific repository.
+
 # Facts
 
 - The ROS core is running on the robot, you just have to connect to it.
