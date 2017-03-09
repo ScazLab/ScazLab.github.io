@@ -24,16 +24,6 @@ excerpt_separator: <!-- More -->
 
 <!-- More -->
 
-# Software Infrastructure
-
-This is the software infrastructure that we are currently using to perform human-robot collaborative tasks with the Baxter robot:
-
-- **Baxter collaboration**: The interface with the Baxter (low level) is done in [this repository](https://github.com/scazlab/baxter_collaboration). In there, both perception and control are taken care of. The repository readme also details the components of the architecture.
-- **HTM**: High level POMDP planning is done in [this repository](https://github.com/scazlab/htm).
-- **Baxter tictactoe**: The tictactoe demo is located in [this repository](https://github.com/ScazLab/baxter_tictactoe).
-
-They are public repositories, but to work on them you need to be either a member of the scazlab organization or to be a contributor for the specific repository.
-
 # How to use the robot
 
 ## How to turn it on
@@ -46,6 +36,16 @@ They are public repositories, but to work on them you need to be either a member
 
  1. Tuck the robot. We have an alias for this, so you just have to type `tuck` in a terminal with access to the robot system.
  2. Shut down the robot with the button in the back of its base.
+
+# Software Infrastructure
+
+This is the software infrastructure that we are currently using to perform human-robot collaborative tasks with the Baxter robot:
+
+- **Baxter collaboration**: The interface with the Baxter (low level) is done in [this repository](https://github.com/scazlab/baxter_collaboration). In there, both perception and control are taken care of. The repository readme also details the components of the architecture.
+- **HTM**: High level POMDP planning is done in [this repository](https://github.com/scazlab/htm).
+- **Baxter tictactoe**: The tictactoe demo is located in [this repository](https://github.com/ScazLab/baxter_tictactoe).
+
+They are public repositories, but to work on them you need to be either a member of the scazlab organization or to be a contributor for the specific repository.
 
 # Facts
 
