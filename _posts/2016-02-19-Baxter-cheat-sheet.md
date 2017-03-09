@@ -1,11 +1,12 @@
 ---
 layout: post
-title: Baxter cheat sheet
-author: Olivier Mangin
+title: Baxter Cheat Sheet
+author: Olivier Mangin and Alessandro Roncone
 description: "Cheat sheet for the baxter robot"
 tags: [baxter,robot,tutorial]
 categories: [wiki]
 comments: false
+permalink: baxter_cheat_sheet.html
 image:
   feature: baxter_tictactoe.jpg
 excerpt_separator: <!-- More -->
@@ -33,6 +34,19 @@ This is the software infrastructure that we are currently using to perform human
 
 They are public repositories, but to work on them you need to be either a member of the scazlab organization or to be a contributor for the specific repository.
 
+# How to use the robot
+
+## How to turn it on
+
+ 0. Turn on the robot by pressing the button in the back of its base. Wait for the robot to finish its start-up phase (it takes a couple minutes).
+ 1. Be sure that the system you're running the code has access to the Baxter robot. This is usually done by running the `baxter.sh` script that should be provided in your Baxter installation. See [here](http://sdk.rethinkrobotics.com/wiki/Hello_Baxter#Source_ROS_Environment_Setup_Script) for more info. **Important** → for what concerns the Baxter robot on the ScazLab, this means that every time you have to run some ROS software to be used on the robot you should open a new terminal, and do the following: ` cd ros_devel_ws && ./baxter.sh `. A change in the terminal prompt should acknowledge that you now have access to `baxter.local`. __Please be aware of this fact when you operate the robot__.
+ 2. Untuck the robot. We have an alias for this, so you just have to type `untuck` in the terminal you previously opened.
+
+## How to turn it off
+
+ 1. Tuck the robot. We have an alias for this, so you just have to type `tuck` in a terminal with access to the robot system.
+ 2. Shut down the robot with the button in the back of its base.
+
 # Facts
 
 - The ROS core is running on the robot, you just have to connect to it.
@@ -41,7 +55,7 @@ They are public repositories, but to work on them you need to be either a member
   - Baxter is automatically discovered through [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking) as `baxter.local`. (On ubuntu see: [HowToZeroconf](https://help.ubuntu.com/community/HowToZeroconf)).
   - Typically you only have to set `baxter_hostname="baxter.local"` and `your_ip="$(/sbin/ip -o -4 addr list eth0 | awk '{print $4}' | cut -d/ -f1)"` in the `baxter.sh` file. Replace `eth0` by the interface connected to Baxter.
 
-# Quick reminders
+# Misc
 
 - [(Un/)Tuck](https://github.com/RethinkRobotics/sdk-docs/wiki/Tuck-Arms-Example): `rosrun baxter_tools tuck_arms.py -t # and -u`
 
