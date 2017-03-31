@@ -11,11 +11,14 @@ image:
   feature: baxter_tictactoe.jpg
 excerpt_separator: <!-- More -->
 ---
+
+Welcome to the cheat sheet for the Baxter robot.
+
 ## Useful links
 
-- Baxter uses [ROS indigo](http://wiki.ros.org/indigo). Installation:
-  - According to ROS: <http://wiki.ros.org/indigo/Installation/Ubuntu>
-  - According to Alessandro: <http://alecive.github.io/blog/2015/11/12/ROS-naive-installation>, <http://wiki.ros.org/indigo/Installation/Source>
+- Baxter uses [ROS indigo](http://wiki.ros.org/indigo).
+  - Installation according to ROS: <http://wiki.ros.org/indigo/Installation/Ubuntu>
+  - Installation according to Alessandro: <http://alecive.github.io/blog/2015/11/12/ROS-naive-installation>, <http://wiki.ros.org/indigo/Installation/Source>
 - Baxter:
   - [Setup](http://sdk.rethinkrobotics.com/wiki/Workstation_Setup) (see the following for the setup)
   - [Hello Baxter](http://sdk.rethinkrobotics.com/wiki/Hello_Baxter)
