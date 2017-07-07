@@ -18,12 +18,12 @@ Welcome to the cheat sheet for the Baxter robot.
 
 - Baxter uses [ROS indigo](http://wiki.ros.org/indigo).
   - Installation according to ROS: <http://wiki.ros.org/indigo/Installation/Ubuntu>
-  - Installation according to Alessandro: <http://alecive.github.io/blog/2015/11/12/ROS-naive-installation>, <http://wiki.ros.org/indigo/Installation/Source>
+  - Installation according to Alessandro: <https://alecive.github.io/ros_installation.html>, <http://wiki.ros.org/indigo/Installation/Source>
 - Baxter:
   - [Setup](http://sdk.rethinkrobotics.com/wiki/Workstation_Setup) (see the following for the setup)
   - [Hello Baxter](http://sdk.rethinkrobotics.com/wiki/Hello_Baxter)
   - [Baxter API](http://sdk.rethinkrobotics.com/wiki/API_Reference)
-- [Alessandro's ROS tips and tricks](http://alecive.github.io/blog/2016/02/08/ROS-concepts/)
+- [Alessandro's ROS tips and tricks](https://alecive.github.io/ros_concepts.html)
 
 <!-- More -->
 
