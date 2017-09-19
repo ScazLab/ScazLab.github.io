@@ -1,4 +1,4 @@
-title:            ScazLab 
+title:            ScazLab
 description:      Tips and tricks for the Social Robotics Lab
 disqus_shortname: scazlab # put your disqus here
 reading_time:     true # if true, shows the estimated reading time for a post
@@ -29,14 +29,16 @@ menu:
     submenu:
       - title: 'Baxter cheat sheet'
         url: '/wiki/Baxter-cheat-sheet/'
+      - title: 'Lab cheat sheet'
+        url: '/wiki/Lab-cheat-sheet/'
 
 # Owner/author information
 owner:
   name:           Social Robotics Lab
   site:           http://scazlab.yale.edu/
   avatar:         images/avatar.jpg
-  bio:            "Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice."
-  email:          you@email.com
+  bio:            "The Social Robotics Lab in Yale University"
+  email:          scazlab@gmail.com
   # Social networking links used in footer. Update and remove as you like.
   twitter:  # if no twitter in this config, the twitter follow button will be removed
   facebook:
@@ -47,13 +49,20 @@ owner:
   flickr:
   tumblr:
   # google plus id, include the '+', eg +AronBordin
-  google_plus: 
+  google_plus:
 
 social:
   - title: "github"
     url: "https://github.com/ScazLab"
 # Background image to be tiled on all pages
 background:
+
+defaults:
+  -
+    scope:
+      path: "_posts"
+    values:
+      layout: "article"
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:
@@ -66,7 +75,7 @@ timezone:    America/New_York
 future:      true
 highlighter: rouge
 markdown:    kramdown
-kramdown: 
+kramdown:
   syntax_highlighter: rouge
   highlighter: rouge
   auto_ids: true
