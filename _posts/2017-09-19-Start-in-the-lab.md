@@ -54,7 +54,7 @@ Also here, you have some specific requirements. Baxter ~~is stuck to~~ uses [ROS
 
 It is **very useful** and **recommended** to have some degree of understanding of ROS. This is a [useful link](https://alecive.github.io/ros_concepts.html).
 
-## Setup your editor of choice / GitHub options
+## Guidelines / options / editor preferences
 
 Here are some good things to set up before contributing to our code:
 
@@ -64,3 +64,5 @@ Here are some good things to set up before contributing to our code:
  * Trim trailing white space on save → on Sublime text, you should add this in your preferences `"trim_trailing_white_space_on_save": true`
  * **DO NOT** create backup files (those that end with `~`)
  * Set up `4` spaces as tab width.
+
+Please be aware that, although the suggestions above are only guidelines, they will be **STRICTLY ENFORCED** throughout our code, as they set the minimum bar to have fruitful and effective collaborations.
