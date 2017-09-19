@@ -62,7 +62,7 @@ defaults:
     scope:
       path: "_posts"
     values:
-      layout: "article"
+      layout: "post"
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:
