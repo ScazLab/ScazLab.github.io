@@ -38,7 +38,7 @@ body {
     height: 0;
     overflow: hidden;
 }
- 
+
 .video-container iframe,
 .pdf-container embed {
     position: absolute;
@@ -170,7 +170,7 @@ header .entry-meta {
 			padding: 20px 30px;
 		}
 		@media #{$large} {
-			max-width: 800px;
+			max-width: 1200px;
 			margin: 50px auto 30px auto;
 			padding: 50px 80px;
 			> p:first-child {
