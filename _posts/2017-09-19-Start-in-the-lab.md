@@ -54,6 +54,15 @@ Also here, you have some specific requirements. Baxter ~~is stuck to~~ uses [ROS
 
 It is **very useful** and **recommended** to have some degree of understanding of ROS. This is a [useful link](https://alecive.github.io/ros_concepts.html).
 
+## Install the Scazlab software
+
+If you are going to work on the Baxter Robot, these are the ROS packages you will need to use and install:
+
+
+- **Human-Robot collaboration**: The interface with the Baxter (low level) is done in [this repository](https://github.com/scazlab/human_robot_collaboration). In there, both perception and control are taken care of. The repository `README.md` also details the components of the architecture.
+- **Task Models**: High level POMDP planning is done in [this repository](https://github.com/scazlab/task-models).
+- **Baxter tictactoe**: (non mandatory) the tictactoe demo is located in [this repository](https://github.com/ScazLab/baxter_tictactoe).
+
 ## Guidelines / options / editor preferences
 
 Here are some good things to set up before contributing to our code:
@@ -64,5 +73,10 @@ Here are some good things to set up before contributing to our code:
  * Trim trailing white space on save → on Sublime text, you should add this in your preferences `"trim_trailing_white_space_on_save": true`
  * **DO NOT** create backup files (those that end with `~`)
  * Set up `4` spaces as tab width.
+ * Be considerate in using `git`. `git` is a great tool, but it needs to be used carefully in order to maximize its effectiveness. To this end, please:
+    * commit frequently, push frequently
+    * do not create huge commits with all the files you worked on during your day because it is harder for us to review them
+    * use branching and pull requests to implement features/bug fixes
+
 
 Please be aware that, although the suggestions above are only guidelines, they will be **STRICTLY ENFORCED** throughout our code, as they set the minimum bar to have fruitful and effective collaborations.
