@@ -15,17 +15,17 @@ The following is a list of initial things to do if you are new to the lab. Pleas
 
 <!-- More -->
 
-# Initial setup
+# 1. Initial setup
 
  1. Create an account on our [official Slack team](scazlab.slack.com), and share your username with your supervisor. Ideally, install slack on your machine as well as on your phone in oder to be always up to date with what happens on the lab. Most of our internal communication happens there.
  2. Create an account on [GitHub](github.com), and share your username with your supervisor.
  3. Write to [Larissa](http://scazlab.yale.edu/people/larissa-hall) in order to manage all the bureaucracy and get lab access with your Yale ID. Put your supervisor in Cc.
 
-# Software installation
+# 2. Software
 
 For what concerns the software, your mileage may vary. This is what you need to if you are doing software development on the Human--Robot Collaboration side of the lab (but it may apply to others as well)
 
-## Install Ubuntu [14.04]
+## 2.1 Install Ubuntu [14.04]
 
 Linux (and Ubuntu) is our operating system of choice. It is not important to be a Linux expert, but you need at least to have it installed in order to be able to develop on an environment as similar as possible to the one you will use when using the Baxter Robot (or similar ROS-based robots).
 
@@ -42,7 +42,7 @@ You have the following options:
 
 **NOTE:** the Baxter Robot ~~is stuck to~~ uses Ubuntu 14.04, so it is highly recommended to use that.
 
-## Install ROS [indigo]
+## 2.2 Install ROS [indigo]
 
 ROS is the so-called Robot Operating System. It is the core software we use to interface with the robot.
 
@@ -54,7 +54,7 @@ Also here, you have some specific requirements. Baxter ~~is stuck to~~ uses [ROS
 
 It is **very useful** and **recommended** to have some degree of understanding of ROS. This is a [useful link](https://alecive.github.io/ros_concepts.html).
 
-## Install the Scazlab software
+## 2.3 Install the Scazlab software
 
 If you are going to work on the Baxter Robot, these are the ROS packages you will need to use and install:
 
@@ -63,7 +63,7 @@ If you are going to work on the Baxter Robot, these are the ROS packages you wil
 - **Task Models**: High level POMDP planning is done in [this repository](https://github.com/scazlab/task-models).
 - **Baxter tictactoe**: (non mandatory) the tictactoe demo is located in [this repository](https://github.com/ScazLab/baxter_tictactoe).
 
-## Guidelines / options / editor preferences
+# 3 Guidelines / options / editor preferences
 
 Here are some good things to set up before contributing to our code:
 
@@ -71,12 +71,13 @@ Here are some good things to set up before contributing to our code:
  * Use **ALWAYS** tab as spaces → on Sublime text, you should add this in your preferences `"translate_tabs_to_spaces": true`
  * Ensure newline at the end of files → on Sublime text, you should add this in your preferences `"ensure_newline_at_eof_on_save": true`
  * Trim trailing white space on save → on Sublime text, you should add this in your preferences `"trim_trailing_white_space_on_save": true`
- * **DO NOT** create backup files (those that end with `~`)
+ * **DO NOT** create backup files (those that end with `~`), or at least do not commit them
  * Set up `4` spaces as tab width.
  * Be considerate in using `git`. `git` is a great tool, but it needs to be used carefully in order to maximize its effectiveness. To this end, please:
     * commit frequently, push frequently
     * do not create huge commits with all the files you worked on during your day because it is harder for us to review them
     * use branching and pull requests to implement features/bug fixes
+ * Keep your code **ALWAYS** in a compile-able state. We don't want our work on the Baxter to be slowed down by some partial feature that is broken (which is fine) but then breaks all the compilations on the machine
 
 
 Please be aware that, although the suggestions above are only guidelines, they will be **STRICTLY ENFORCED** throughout our code, as they set the minimum bar to have fruitful and effective collaborations.
