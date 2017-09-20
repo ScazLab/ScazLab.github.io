@@ -7,7 +7,7 @@ categories: [wiki]
 comments: false
 permalink: lab_cheat_sheet.html
 image:
-  feature: baxter_tictactoe.jpg
+  feature: group_pic.jpg
 excerpt_separator: <!-- More -->
 ---
 
