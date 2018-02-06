@@ -32,13 +32,13 @@ Linux (and Ubuntu) is our operating system of choice. It is not important to be 
 You have the following options:
 
 1. You don't want to use your laptop: we can provide you with a machine with Ubuntu and ROS pre-installed (or we may ask you to do the job)
-2. You want to work on your laptop:
-    1. You already use Ubuntu → great! You are a true nerd. Move on to the next section
-    2. You use MacOS / Windows:
-        1. You can install Ubuntu side by side with your main OS partition [**recommended** option as it's the most flexible overall and it pays off over the time]
-        2. You can use a virtual machine with Ubuntu on it
-        3. You can use Docker containers to virtualize an Ubuntu machine on your main operating system. Our Docker containers come with ROS and our code already preinstalled! Please be aware that this is definitely the option that requires you to be an advanced terminal user. You can get our containers [here](https://hub.docker.com/r/scazlab/human_robot_collaboration/)
-        4. If you use MacOS, there is also the option to install ROS on Mac directly, although it is highly unsupported and usually there are problems. But many students were able to do so!
+2. You want to **work on your laptop**:
+    1. **You already use Ubuntu** → great! You are a true nerd. Move on to the next section
+    2. **You use MacOS / Windows:**
+        1. You can **install Ubuntu side by side** with your main OS partition [**recommended** option as it's the most flexible overall and it pays off over the time]
+        2. You can **use a virtual machine** with Ubuntu on it
+        3. You can **use Docker** containers to virtualize an Ubuntu machine on your main operating system. Our Docker containers come with ROS and our code already preinstalled! Please be aware that this is definitely the option that requires you to be an advanced terminal user. You can get our containers [here](https://hub.docker.com/r/scazlab/human_robot_collaboration/)
+        4. If you use another linux distribution or MacOS, there is also the option to install ROS on it directly, although it is (highly) unsupported and usually there are problems. But many students were able to do so!
 
 **NOTE:** the Baxter Robot ~~is stuck to~~ uses Ubuntu 14.04, so it is highly recommended to use that.
 
