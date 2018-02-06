@@ -52,9 +52,18 @@ Also here, you have some specific requirements. Baxter ~~is stuck to~~ uses [ROS
   - [Installation from sources](http://wiki.ros.org/indigo/Installation/Source)
   - [Installation according to Alessandro](https://alecive.github.io/ros_installation.html)
 
-It is **very useful** and **recommended** to have some degree of understanding of ROS. This is a [useful link](https://alecive.github.io/ros_concepts.html).
+## 2.3 Learn about ROS
 
-## 2.3 Install the Scazlab software
+To have some degree of understanding of ROS, please read the following documents:
+  - [an introduction by Alessandro](https://alecive.github.io/ros_concepts.html),
+  - [the official introduction](http://wiki.ros.org/ROS/Concepts),
+  - [the documentation on nodes](http://wiki.ros.org/Nodes).
+
+If you still need some practice, you might have a look at [ROS tutorials](http://wiki.ros.org/ROS/Tutorials).
+
+To learn more about the Baxter robot, please also have a look at [this page]({% post_url 2017-03-08-Baxter-cheat-sheet %}).
+
+## 2.4 Install the Scazlab software
 
 If you are going to work on the Baxter Robot, these are the ROS packages you will need to use and install:
 
