@@ -11,6 +11,12 @@ image:
 excerpt_separator: <!-- More -->
 ---
 
+# Contents
+{:.no_toc}
+
+* This line will be replaced by the ToC, excluding the "Contents" header
+{:toc}
+
 The following is a list of initial things to do if you are new to the lab. Please consider this a non-exhaustive, always changing cheat sheet. As such, please ask us to modify it if there is anything missing or anything you would like to add!!
 
 <!-- More -->
