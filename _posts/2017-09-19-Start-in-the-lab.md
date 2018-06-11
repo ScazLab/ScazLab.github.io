@@ -74,7 +74,16 @@ If you are going to work on the Baxter Robot, these are the ROS packages you wil
 
 ## 2.5 Other tools
 
-- A nice article about what mess `CMake` is---and also a good way to start learning it: [link](https://samthursfield.wordpress.com/2015/11/21/cmake-dependencies-between-targets-and-files-and-custom-commands/)
+### 2.5.1 CMake
+
+`CMake` is core to `ROS` development and any advanced, multi-platform, `C++` based development. It is relatively easy to learn, but very difficult to master. Here are some resources that might be useful:
+
+ - [CGold: The Hitchhiker’s Guide to the CMake](http://cgold.readthedocs.io/en/latest/) is a very long, but complete and thorough set of tools
+ - The [LLVM primer on CMake](https://llvm.org/docs/CMakePrimer.html) is useful for the language level (i.e. variables, control loops, commands), but it does not provide interesting information like explanation of `target_include_directories` `target_link_libraries`
+ - [This one](https://github.com/onqtam/awesome-cmake#resources) is another long tutorial
+ - [This one](https://gist.github.com/mbinna/c61dbb39bca0e4fb7d1f73b0d66a4fd1) is a useful collection of tips and tricks
+ - [This](https://codingnest.com/basic-cmake/) instead is a series of tutorials oriented towards students that I saw recently and may be useful
+ - [This](https://samthursfield.wordpress.com/2015/11/21/cmake-dependencies-between-targets-and-files-and-custom-commands/) is a nice article about what mess `CMake` is---and also a good way to start learning it
 
 # 3 Guidelines / options / editor preferences
 
