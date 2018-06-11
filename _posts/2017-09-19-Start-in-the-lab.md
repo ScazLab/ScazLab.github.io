@@ -72,6 +72,10 @@ If you are going to work on the Baxter Robot, these are the ROS packages you wil
 - **Task Models**: High level POMDP planning is done in [this repository](https://github.com/scazlab/task-models).
 - **Baxter tictactoe**: (non mandatory) the tictactoe demo is located in [this repository](https://github.com/ScazLab/baxter_tictactoe).
 
+## 2.5 Other tools
+
+- A nice article about what mess `CMake` is---and also a good way to start learning it: [link](https://samthursfield.wordpress.com/2015/11/21/cmake-dependencies-between-targets-and-files-and-custom-commands/)
+
 # 3 Guidelines / options / editor preferences
 
 Here are some good things to set up before contributing to our code:
