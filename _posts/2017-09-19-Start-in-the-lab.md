@@ -53,10 +53,10 @@ You have the following options:
 ROS is the so-called Robot Operating System. It is the core software we use to interface with the robot.
 
 Also here, you have some specific requirements. Baxter ~~is stuck to~~ uses [ROS indigo](http://wiki.ros.org/indigo). Here are some installation instructions:
-
+  
+  - [Installation according to Alessandro (HIGHLY RECOMMENDED](https://alecive.github.io/ros_installation.html)
   - [Installation according to ROS](http://wiki.ros.org/indigo/Installation/Ubuntu)
   - [Installation from sources](http://wiki.ros.org/indigo/Installation/Source)
-  - [Installation according to Alessandro](https://alecive.github.io/ros_installation.html)
 
 ## 2.3 Learn about ROS
 
