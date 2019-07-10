@@ -1,0 +1,56 @@
+
+Turning the robot on:
+- Press the button on the tablet and wait until the system boots (takes some time, be patient)
+- In the bottom left corner, there is a red button (should be saying "Power Off" under normal circumstances), tap it.
+- Tap "On", wait, and when it is tappable, tap "On" again.
+- Tap "Exit"
+
+Moving the robot using local control (the tablet):
+- First, follow the "Turning the robot on" instructions
+- You can move the robot using one of the two options: 
+1) Manually, 2) Freedrive
+1) Manually: on the top left corner, pick the "Move" menu. You can move the robot using the arrows in the left, or you can move the individual joints using the arrows/parameters in the right.
+2) Freedrive: tap and hold Freedrive in the bottom middle of the screen OR hold the physical button on top back of the tablet, and you now can move the robot by pulling and pushing it. 
+
+
+Moving the robot using a Python Script:
+- First, follow the "Turning the robot on" instructions
+- On your computer, switch to the network you are on to "ScazLab-r01" (if that is what the robot is connected to with the ethernet cable)
+- Choose (in the top right) Hamburger Menu -> About. Note down the <IP_ADDRESS>.
+- If you are not on Automatic, switch from Manual to Automatic control.
+- Now, switch from Automatic to Remote Control
+- Go to Terminal, and enter the command: ping <IP_ADDRESS>
+- If it works, continue. Else, solve this problem.
+- Look at the Python Script provided ("moveUR.py"), and run it. (Or write your own script after examining this) This script was adapted from 
+
+
+
+Defining the safety planes:
+
+- Tap the Installation menu on top right (if not refer to "Extenuating Circumstances" below)
+- This is rather confusing, so carefully follow these instructions
+- Select "Features" in the left menu
+- Tap Plane
+- Now you are going to choose three points to determine a plane. First, you pick an origin, then two points that will determine two vectors in relation to the origin, and their multiplication will give you a plane. Let us start with the origin O.
+- Tap next, then tap "set position", now you are going to use the tip of the robot arm to determine the point. Thus O is determined. (I suggest that you use the arrows to determine your point, because otherwise it will be harder to be accurate)
+- Now you will determine points r and g, setting Vr (vector red) and Vg (vector green). Vr is origin to r, Vg is origin to g. 
+- WARNING: the order of r and g matter, because you will determine the forbidden zone of the plane by a cross-product Vr x Vg. These two vectors define a plane, and their cross-multiplication defines the direction of the plane that is forbidden. Use the right hand rule.
+- If your plane is correct, tap finish
+- You can switch to "safety" menu in the left, and tap Planes.
+- Tap empty bar next to "Safety password" in the bottom middle. Enter the password, and tap submit, NOT unlock.
+- Tap add plane on the top right. Under "properties", under "Copy Feature", select the plane you have defined in the "Features". Tap Apply.
+- Voila!
+
+
+Extenuating circumstances:
+
+Initialize Menu is not selectable:
+- Select the circular (vortex-like) shape in the top right, and switch to "Manual".
+
+Emergency shutdown:
+- When you try to restart the robot, "ON button" is not selectable. PULL THE EMERGENCY BUTTON OUT (yes, really)
+
+
+
+
+
