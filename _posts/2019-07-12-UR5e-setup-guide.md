@@ -12,6 +12,8 @@ excerpt_separator: <!-- More -->
 
 Welcome to the Setup Guide for the UR5e robot.
 
+<!-- More -->
+
 ## Ubuntu System
 
 The following instructions has been tested on Ubuntu 16.04 only.
