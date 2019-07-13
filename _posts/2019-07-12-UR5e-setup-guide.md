@@ -82,15 +82,16 @@ catkin build
 Later you can save all your libraries in ros_libs_src.
 
 
-# Download the driver
+# Download the driver (You may choose to download it from the official souce, but I ran into problems with it)
 
 ```
 cd ~/ros_libs_ws/src
-git clone -b kinetic-devel https://github.com/ros-industrial/ur_modern_driver.git
+git clone https://github.com/ScazLab/ur_modern_driver.git
 ```
 
 # Get the dependencies
 ```
+cd  ~/ros_libs_ws
 rosdep update
 rosdep install --rosdistro kinetic --ignore-src --from-paths src
 ```
