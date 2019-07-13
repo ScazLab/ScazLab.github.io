@@ -63,10 +63,16 @@ sudo apt-get update
 sudo apt-get install python-catkin-tools
 ```
 
-## UR5e driver
-The UR5e ros installation official guide can be found [here](http://wiki.ros.org/action/show/universal_robots?action=show&redirect=universal_robot). Before you can install the ROS-Industrial package for the UR robot arms, you will need the ur driver package. There are currently two packages available, `ur_driver` and `ur_modern_driver`. It is highly recommended that you get the `ur_modern_driver`. Also it is highly recommended that you create a workspace for the libraries and a separate one for your projects.
+## UR5e ROS
+The UR5e ros installation official guide can be found [here](http://wiki.ros.org/action/show/universal_robots?action=show&redirect=universal_robot). Here is the command you need:
+```
+sudo apt-get install ros-kinetic-universal-robots
+```
 
-1. create library workspace (also please feel free to create the directory anywhere you want and with any names you like)
+## UR5e driver
+You will also need the ur driver package. There are currently two packages available, `ur_driver` and `ur_modern_driver`. It is highly recommended that you get the `ur_modern_driver`. Also it is highly recommended that you create a workspace for the libraries and a separate one for your projects.
+
+# create library workspace (also please feel free to create the directory anywhere you want and with any names you like)
 
 ```
 mkdir -p ~/ros_libs_ws/src
@@ -75,32 +81,32 @@ catkin build
 ```
 Later you can save all your libraries in ros_libs_src.
 
-2. Download the driver
+
+# Download the driver
 
 ```
 cd ~/ros_libs_ws/src
 git clone -b kinetic-devel https://github.com/ros-industrial/ur_modern_driver.git
 ```
 
+# Get the dependencies
+```
+rosdep update
+rosdep install --rosdistro kinetic --ignore-src --from-paths src
+```
 
-3. Build the driver
+
+# Build the driver
 
 ```
 cd ~/ros_libs_ws
 catkin build
 ```
 
-4. Source the bash file
+# Source the bash file
 ```
 echo "source ~/ros_libs_ws/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc
-```
-
-## UR5e ROS
-Now let's install the ROS-Industrial UR5e adapter
-
-```
-sudo apt-get install ros-kinetic-universal-robots
 ```
 
 ## UR5e simulator
