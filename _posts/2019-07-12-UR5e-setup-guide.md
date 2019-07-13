@@ -72,7 +72,9 @@ sudo apt-get install ros-kinetic-universal-robots
 ## UR5e driver
 You will also need the ur driver package. There are currently two packages available, `ur_driver` and `ur_modern_driver`. It is highly recommended that you get the `ur_modern_driver`. Also it is highly recommended that you create a workspace for the libraries and a separate one for your projects.
 
-# create library workspace (also please feel free to create the directory anywhere you want and with any names you like)
+# Create library workspace 
+
+Please feel free to create the directory anywhere you want and with any names you like
 
 ```
 mkdir -p ~/ros_libs_ws/src
@@ -190,12 +192,15 @@ the sandwich menu on the top right corner &rightarrow; settings &rightarrow; Sys
 
 ### Get joint angles
 
+You can get the current joint angles form the topic `/joint_states` after launching ur5e_bringup.launch in ur_modern_driver. You can view it directly with `rostopic echo /joint_states`. In the code, just subscribe to this topic. For more topics provided by the package, please refer to [this](https://github.com/ScazLab/ur_modern_driver/blob/kinetic-devel/README.md).
 
 ### Set joint angles
 
+
+
 ## moveit!
 
-to be added!
+todo (no plans to complete this part yet...)
 
 ## Collaboration
 
