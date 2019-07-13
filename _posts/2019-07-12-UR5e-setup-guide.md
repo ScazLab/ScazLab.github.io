@@ -164,14 +164,33 @@ cd ~/ursim-5.3.1.64192
 ./install.sh
 ```
 
-You can run the simulator here:
+You can run the simulator by clicking the icon on the desktop or with the command line:
 ```
 cd ~/ursim-5.3.1.64192
 ./start-ursim.sh
 ```
 
 ## Simple Tutorials
+
+After you turn on the robot and set it to `Remote Control`, to connect to the real robot, you need to (You will need to replace `IP_OF_THE_ROBOT` with the real robot ip, and [this cheatsheet](https://github.com/ScazLab/ScazLab.github.io/blob/master/_posts/UR5e_cheatsheet) might include information on how to find the robot ip):
+
+```
+roslaunch ur_modern_driver ur5e_bringup.launch robot_ip:=IP_OF_THE_ROBOT
+```
+
+To use a simulator, you will need to first run the simulator, and turn on the robot and set it to remote control, with the same way as on the real robot. The ip will be `0.0.0.0` which is the lcoalhost, then connect to the simulator:
+
+```
+roslaunch ur_modern_driver ur5e_bringup.launch robot_ip:=0.0.0.0
+```
+
+Once to connect to the real robot or the simulator, the commands will be the same in the mini tutorials below. If you cannnot see the remote control, here is how to enable it: 
+
+the sandwich menu on the top right corner &rightarrow; settings &rightarrow; System &rightarrow; Remote Control &rightarrow; Enable
+
 ### Get joint angles
+
+
 ### Set joint angles
 
 ## moveit!
