@@ -82,7 +82,9 @@ catkin build
 Later you can save all your libraries in ros_libs_src.
 
 
-# Download the driver (You may choose to download it from the official souce, but I ran into problems with it)
+# Download the driver
+
+You may choose to download it from the official souce, but I ran into problems with it
 
 ```
 cd ~/ros_libs_ws/src
