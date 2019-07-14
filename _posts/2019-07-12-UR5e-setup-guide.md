@@ -86,7 +86,7 @@ Later you can save all your libraries in ros_libs_src.
 
 # Download the driver
 
-You may choose to download it from the official souce, but I ran into problems with it
+You may choose to download it from the official souce, otherwise you might see the error `Sub-package of type 0 was not parsed completely!`
 
 ```
 cd ~/ros_libs_ws/src
@@ -194,8 +194,13 @@ the sandwich menu on the top right corner &rightarrow; settings &rightarrow; Sys
 
 You can get the current joint angles form the topic `/joint_states` after launching ur5e_bringup.launch in ur_modern_driver. You can view it directly with `rostopic echo /joint_states`. In the code, just subscribe to this topic. For more topics provided by the package, please refer to [this](https://github.com/ScazLab/ur_modern_driver/blob/kinetic-devel/README.md).
 
+### Get end effector positon and pose
+
+You can get the information form the topic `\tf`. The pose is in quaternion.
+
 ### Set joint angles
 
+You can publish commands as strings as messages to the topic `ur_driver/URScript`. The syntax is the same as the language URScript. The documentation can be found [here](https://www.universal-robots.com/download/?option=50688#section50495). More information can be found [here](https://www.zacobria.com/universal-robots-knowledge-base-tech-support-forum-hints-tips/universal-robots-script-programming/). You may also consider using the topics `follow_joint_trajectory/*` which wraps up moveit.
 
 
 ## moveit!
