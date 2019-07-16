@@ -207,6 +207,61 @@ You can publish commands as strings as messages to the topic `ur_driver/URScript
 
 todo (no plans to complete this part yet...)
 
+## Others
+
+### Using urdfpy
+
+While polyscope and ros does provide kinematics information, urdfpy is a python lib that can quickly and easily help you understand what the names of joints and links are. To install:
+
+```
+pip install urdfpy
+``` 
+
+If you don't have pip on you computer, install it:
+
+```
+sudo apt-get install python-pip
+```
+
+And if you need to upgrade pip:
+
+```
+sudo pip install --upgrade pip
+```
+
+If you see this error after installation
+>Traceback (most recent call last):
+>  File "/usr/bin/pip", line 9, in <module>
+>    from pip import main
+>ImportError: cannot import name main
+
+You can resolve it with:
+
+```
+sudo subl /usr/bin/pip
+```
+
+And change 
+
+> from pip import main
+
+to 
+
+> from pip.\_internal import main
+
+If you see this while installing `urdepy`:
+
+> RROR: Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-install-QwGdQx/urdfpy/
+
+Just run:
+
+```
+ sudo pip install --upgrade setuptools
+```
+
+More information about urdfpy can be found [here](https://urdfpy.readthedocs.io/en/latest/examples/)
+
+
 ## Collaboration
 
 - **Please edit this file** to add things you think are going to be useful. You can edit it by modifying [this file](https://github.com/ScazLab/ScazLab.github.io/blob/master/_posts/2019-07-12-UR5e-setup-guide.md)
