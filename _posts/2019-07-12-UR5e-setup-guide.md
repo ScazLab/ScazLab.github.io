@@ -135,12 +135,17 @@ catkin build
 echo "source ~/ros_lib_ws/devel/setup.bash" >> ~/.bashrc
 ```
 
+Install ros-controller:
+```
+sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers
+```
+
 The robot arm has been prepared to use this, so you can skip the section `Setting up a UR robot for ur_robot_driver`
 
 
 ## UR5e simulator
 
-# Install simulator for Ubuntu 16.04 (Those are the old instructions, but may be useful for anybody who wish to install in on a Ubunt 16 machine)
+### Install simulator for Ubuntu 16.04 (Those are the old instructions, but may be useful for anybody who wish to install in on a Ubunt 16 machine)
 
 You can get the UR sim [here](https://www.universal-robots.com/download/?option=51846#section41511). We downloaded the current latest one, which is `UR Sim for Linux 5.3.1`. Download the simulator by following the [link](https://www.universal-robots.com/download/?option=51846#).
 
@@ -212,95 +217,13 @@ roslaunch ur_robot_driver ur5e_bringup.launch robot_ip:=127.0.0.1
 
 Also make sure you load the externalcontrol program on the simulator, and then click run (The same as if you are working a real arm)
 
-## Simple Tutorials
+## Moveit
 
-After you turn on the robot and set it to `Remote Control`, to connect to the real robot, you need to (You will need to replace `IP_OF_THE_ROBOT` with the real robot ip, and [this cheatsheet](https://github.com/ScazLab/ScazLab.github.io/blob/master/_posts/UR5e_cheatsheet) might include information on how to find the robot ip):
-
-```
-roslaunch ur_modern_driver ur5e_bringup.launch robot_ip:=IP_OF_THE_ROBOT
-```
-
-To use a simulator, you will need to first run the simulator, and turn on the robot and set it to remote control, with the same way as on the real robot. The ip will be `0.0.0.0` which is the lcoalhost, then connect to the simulator:
+Before you start the moveit planner, make sure the action server was set correctly. locate the `controllers.yaml` file under the directory `~/ros_lib_ws/src/src/fmauch_universal_robot/ur5_e_moveit_config/config`. The current action server set is `follow_joint_trajectory`, replace it with `scaled_pos_traj_controller/follow_joint_trajectory`. Then start the moveit planner:
 
 ```
-roslaunch ur_modern_driver ur5e_bringup.launch robot_ip:=0.0.0.0
+roslaunch ur5_e_moveit_config ur5_e_moveit_planning_execution.launch
 ```
-
-Once to connect to the real robot or the simulator, the commands will be the same in the mini tutorials below. If you cannnot see the remote control, here is how to enable it: 
-
-the sandwich menu on the top right corner &rightarrow; settings &rightarrow; System &rightarrow; Remote Control &rightarrow; Enable
-
-### Get joint angles
-
-You can get the current joint angles form the topic `/joint_states` after launching ur5e_bringup.launch in ur_modern_driver. You can view it directly with `rostopic echo /joint_states`. In the code, just subscribe to this topic. For more topics provided by the package, please refer to [this](https://github.com/ScazLab/ur_modern_driver/blob/kinetic-devel/README.md).
-
-### Get end effector positon and pose
-
-You can get the information form the topic `\tf`. The pose is in quaternion.
-
-### Set joint angles
-
-You can publish commands as strings as messages to the topic `ur_driver/URScript`. The syntax is the same as the language URScript. The documentation can be found [here](https://www.universal-robots.com/download/?option=50688#section50495). More information can be found [here](https://www.zacobria.com/universal-robots-knowledge-base-tech-support-forum-hints-tips/universal-robots-script-programming/). You may also consider using the topics `follow_joint_trajectory/*` which wraps up moveit.
-
-
-## moveit!
-
-todo (no plans to complete this part yet...)
-
-## Others
-
-### Using urdfpy
-
-While polyscope and ros does provide kinematics information, urdfpy is a python lib that can quickly and easily help you understand what the names of joints and links are. To install:
-
-```
-pip install urdfpy
-``` 
-
-If you don't have pip on you computer, install it:
-
-```
-sudo apt-get install python-pip
-```
-
-And if you need to upgrade pip:
-
-```
-sudo pip install --upgrade pip
-```
-
-If you see this error after installation
->Traceback (most recent call last):
->  File "/usr/bin/pip", line 9, in <module>
->    from pip import main
->ImportError: cannot import name main
-
-You can resolve it with:
-
-```
-sudo subl /usr/bin/pip
-```
-
-And change 
-
-> from pip import main
-
-to 
-
-> from pip.\_internal import main
-
-If you see this while installing `urdepy`:
-
-> RROR: Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-install-QwGdQx/urdfpy/
-
-Just run:
-
-```
- sudo pip install --upgrade setuptools
-```
-
-More information about urdfpy can be found [here](https://urdfpy.readthedocs.io/en/latest/examples/)
-
 
 ## Collaboration
 
