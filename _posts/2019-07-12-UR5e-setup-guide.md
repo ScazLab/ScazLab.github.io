@@ -10,22 +10,56 @@ permalink: ur5e_setup_guide.html
 excerpt_separator: <!-- More -->
 ---
 
-Welcome to the Setup Guide for the UR5e robot.
+Welcome to the Setup Guide for the UR5e robot. (Added instructions for the new UR ros driver)
 
 <!-- More -->
 
 ## Ubuntu System
 
-The following instructions has been tested on Ubuntu 16.04 only.
-- You can get the 64 bits system [here](http://releases.ubuntu.com/16.04/).
+The following instructions has been tested on Ubuntu 18.04 only.
+- You can get the 64 bits system [here](http://releases.ubuntu.com/18.04/).
 - To create a bootable USB, please refer to information [here](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows#0).
 - You are recommended to partition the harddrive with the `Disks` that comes with Ubuntu. Otherwise, you might see this during installation:
 > The partition * assigned to / starts at an offset of * bytes from the minimum alignment for this disk, which may lead to very poor performance.
 
+## UR Simulator
+
+If tried with installing ROS first and then the simulator, but it somehow deleted a few ros packages. I could be wrong, but installaing the simulator works for me.
+
+Download the simulator from here:
+https://www.universal-robots.com/download/?option=51846#section41511
+
+The version tested is 5.3.1, which is the same as the hardware in the lab. Install the simulator with the following instructions (Following the instructions on the website would not install the simulator properly on Ubuntu 18. The instructions below are adapted from https://forum.universal-robots.com/t/ursim-no-controller-error/2829/7).
+
+- unzip the software to the home folder (the same as the installation instructions from the download link)
+- install java 8 (note: other version doesn't work), and make sure it is the default version with `java -version`
+```
+sudo apt install openjdk-8-jre
+```
+- install libxmlrpc for 32 bit executable
+```
+sudo apt install libxmlrpc-c++8v5:i386
+```
+- change the file install.sh: in commonDependencies: Change libcurl3 to libcurl4
+- run `./install.sh` to install the simulator
+
+To use the simulator, you can either run `./start-ursim.sh`(and UR5 is the default) or double-click the shortcut created on the desktop (However, this won't show error messages if anything goes wrong). 
+
+If you see errors like `java.awt.AWTError: Assistive Technology not found: `, this can be solved by:
+```
+This can be done by editing the accessibility.properties file for OpenJDK:
+    sudo vim /etc/java-8-openjdk/accessibility.properties
+Comment out the following line:
+    assistive_technologies=org.GNOME.Accessibility.AtkWrapper
+```
+The solution was found: https://github.com/Microsoft/vscode-arduino/issues/644
+
+If you cannot start the arm because no controllers found, manually execute `starturcontrol.sh` should solve the issue.
+
 
 ## ROS
 
-The version `kinetic` is used for UR5e. Basically, you just need to follow [these instructions](http://wiki.ros.org/kinetic/Installation/Ubuntu). The commands are listed here for your convenience.
+The version `melodic` is used for UR5e. Basically, you just need to follow [these instructions](http://wiki.ros.org/melodic/Installation/Ubuntu). The commands are listed here for your convenience.
 
 ```
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -33,8 +67,8 @@ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31
 ```
 
 ```
-sudo apt-get update
-sudo apt-get install ros-kinetic-desktop-full
+sudo apt update
+sudo apt install ros-melodic-desktop-full
 ```
 
 ```
@@ -43,7 +77,7 @@ rosdep update
 ```
 
 ```
-echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
@@ -63,58 +97,51 @@ sudo apt-get update
 sudo apt-get install python-catkin-tools
 ```
 
-## UR5e ROS
-The UR5e ros installation official guide can be found [here](http://wiki.ros.org/action/show/universal_robots?action=show&redirect=universal_robot). Here is the command you need:
-```
-sudo apt-get install ros-kinetic-universal-robots
-```
+## UR5e ROS Driver
 
-## UR5e driver
-You will also need the ur driver package. There are currently two packages available, `ur_driver` and `ur_modern_driver`. It is highly recommended that you get the `ur_modern_driver`. Also it is highly recommended that you create a workspace for the libraries and a separate one for your projects.
+It is highly recommended that you create a workspace for the libraries and a separate one for your projects.
 
 # Create library workspace 
 
 Please feel free to create the directory anywhere you want and with any names you like
 
 ```
-mkdir -p ~/ros_libs_ws/src
-cd ~/ros_libs_ws
+mkdir -p ~/ros_lib_ws/src
+cd ~/ros_lib_ws
 catkin build
 ```
-Later you can save all your libraries in ros_libs_src.
+Later you can save all your libraries in ros_lib_src.
 
 
 # Download the driver
 
-You may choose to download it from the official souce, otherwise you might see the error `Sub-package of type 0 was not parsed completely!`
+All of the official ros packages are: https://github.com/UniversalRobots/
+The driver is here: https://github.com/UniversalRobots/Universal_Robots_ROS_Driver
+
+The following installation instructions are adapted from the github
 
 ```
-cd ~/ros_libs_ws/src
-git clone https://github.com/ScazLab/ur_modern_driver.git
-```
+cd ~/ros_lib_ws/src
+git clone https://github.com/UniversalRobots/Universal_Robots_ROS_Driver.git src/Universal_Robots_ROS_Driver
+git clone -b calibration_devel https://github.com/fmauch/universal_robot.git src/fmauch_universal_robot
 
-# Get the dependencies
-```
-cd  ~/ros_libs_ws
+# install dependencies
+sudo apt update -qq
 rosdep update
-rosdep install --rosdistro kinetic --ignore-src --from-paths src
-```
+rosdep install --from-path src --ignore-src -y
 
-
-# Build the driver
-
-```
-cd ~/ros_libs_ws
+cd ..
 catkin build
+echo "source ~/ros_lib_ws/devel/setup.bash" >> ~/.bashrc
 ```
 
-# Source the bash file
-```
-echo "source ~/ros_libs_ws/devel/setup.bash" >> ~/.bashrc
-source ~/.bashrc
-```
+The robot arm has been prepared to use this, so you can skip the section `Setting up a UR robot for ur_robot_driver`
+
 
 ## UR5e simulator
+
+# Install simulator for Ubuntu 16.04 (Those are the old instructions, but may be useful for anybody who wish to install in on a Ubunt 16 machine)
+
 You can get the UR sim [here](https://www.universal-robots.com/download/?option=51846#section41511). We downloaded the current latest one, which is `UR Sim for Linux 5.3.1`. Download the simulator by following the [link](https://www.universal-robots.com/download/?option=51846#).
 
 To install the simulator, save it to your home folder. Change to your home folder and extract the file to the root of your home folder:
@@ -171,6 +198,19 @@ You can run the simulator by clicking the icon on the desktop or with the comman
 cd ~/ursim-5.3.1.64192
 ./start-ursim.sh
 ```
+
+# Prepare the simulator for the ros drivers
+
+To install the URCap, copy the file `externalcontrol-1.0.urcap` in `~/ros_lib_ws/src/src/Universal_Robots_ROS_Driver/ur_robot_driver/resources` to `~/ursim-5.3.1.64192/programs.UR5/` or `~/ursim-5.3.1.64192/programs/` if you are running the simulator, then following the instructions on https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/blob/master/ur_robot_driver/doc/install_urcap_e_series.md as if you are installing it on an actual arm. You should set the ip to be localhost (127.0.0.1) as the remote host machine on a simulator.
+
+# Run the Simulator
+
+Run the ros driver first:
+```
+roslaunch ur_robot_driver ur5e_bringup.launch robot_ip:=127.0.0.1
+```
+
+Also make sure you load the externalcontrol program on the simulator, and then click run (The same as if you are working a real arm)
 
 ## Simple Tutorials
 
