@@ -142,6 +142,11 @@ sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers
 
 The robot arm has been prepared to use this, so you can skip the section `Setting up a UR robot for ur_robot_driver`
 
+May need to install ros_control manually to run the exmample on github:
+
+```
+sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers
+```
 
 ## UR5e simulator
 
