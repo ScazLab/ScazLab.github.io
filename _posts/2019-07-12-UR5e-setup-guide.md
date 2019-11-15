@@ -224,11 +224,52 @@ Also make sure you load the externalcontrol program on the simulator, and then c
 
 ## Moveit
 
-Before you start the moveit planner, make sure the action server was set correctly. locate the `controllers.yaml` file under the directory `~/ros_lib_ws/src/src/fmauch_universal_robot/ur5_e_moveit_config/config`. The current action server set is `follow_joint_trajectory`, replace it with `scaled_pos_traj_controller/follow_joint_trajectory`. Then start the moveit planner:
+Before you start the moveit planner, make sure the action server was set correctly. locate the `controllers.yaml` file under the directory `~/ros_lib_ws/src/src/fmauch_universal_robot/ur5_e_moveit_config/config`. The current name is empty, change it to with `scaled_pos_traj_controller`. Then start the moveit planner:
 
 ```
 roslaunch ur5_e_moveit_config ur5_e_moveit_planning_execution.launch
 ```
+
+## Robotiq F2-85 Gripper
+
+Install the gripper ros config: 
+
+```
+cd ros_lib_ws/src
+git clone https://github.com/ros-industrial/robotiq.git
+sudo apt-get install ros-melodic-soem
+cd ..
+rosdep update
+rosdep install --from-paths src/ --ignore-src --rosdistro melodic
+catkin build
+```
+
+After restart terminal:
+```
+rosdep install robotiq_modbus_tcp
+```
+make sure it is successful
+
+```
+sudo usermod -a -G dialout <user-name>
+```
+
+# Add gripper to URDF
+
+# Plan with moveit
+Visualize with moveit
+```
+roslaunch moveit_setup_assistant setup_assistant.launch
+```
+
+If cannot found, install it with 
+
+```
+sudo apt-get install ros-melodic-moveit
+```
+
+And follow the instructions here: http://docs.ros.org/melodic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html
+
 
 ## Collaboration
 
