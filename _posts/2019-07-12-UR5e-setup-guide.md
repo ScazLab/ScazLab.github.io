@@ -14,7 +14,7 @@ Welcome to the Setup Guide for the UR5e robot. (Added instructions for the new U
 
 <!-- More -->
 
-## Ubuntu System
+# Ubuntu System
 
 The following instructions has been tested on Ubuntu 18.04 only.
 - You can get the 64 bits system [here](http://releases.ubuntu.com/18.04/).
@@ -22,14 +22,14 @@ The following instructions has been tested on Ubuntu 18.04 only.
 - You are recommended to partition the harddrive with the `Disks` that comes with Ubuntu. Otherwise, you might see this during installation:
 > The partition * assigned to / starts at an offset of * bytes from the minimum alignment for this disk, which may lead to very poor performance.
 
-## UR Simulator
+# UR5e Simulator
 
 If tried with installing ROS first and then the simulator, but it somehow deleted a few ros packages. I could be wrong, but installaing the simulator works for me.
 
 Download the simulator from here:
-https://www.universal-robots.com/download/?option=51846#section41511
+<https://www.universal-robots.com/download/?option=51846#section41511>
 
-The version tested is 5.3.1, which is the same as the hardware in the lab. Install the simulator with the following instructions (Following the instructions on the website would not install the simulator properly on Ubuntu 18. The instructions below are adapted from https://forum.universal-robots.com/t/ursim-no-controller-error/2829/7).
+The version tested is 5.3.1, which is the same as the hardware in the lab. Install the simulator with the following instructions (Following the instructions on the website would not install the simulator properly on Ubuntu 18. The instructions below are adapted from <https://forum.universal-robots.com/t/ursim-no-controller-error/2829/7>).
 
 - unzip the software to the home folder (the same as the installation instructions from the download link)
 - install java 8 (note: other version doesn't work), and make sure it is the default version with `java -version`
@@ -52,105 +52,11 @@ This can be done by editing the accessibility.properties file for OpenJDK:
 Comment out the following line:
     assistive_technologies=org.GNOME.Accessibility.AtkWrapper
 ```
-The solution was found: https://github.com/Microsoft/vscode-arduino/issues/644
+The solution was found: <https://github.com/Microsoft/vscode-arduino/issues/644>
 
 If you cannot start the arm because no controllers found, manually execute `starturcontrol.sh` should solve the issue.
 
-
-## ROS
-
-The version `melodic` is used for UR5e. Basically, you just need to follow [these instructions](http://wiki.ros.org/melodic/Installation/Ubuntu). The commands are listed here for your convenience.
-
-```
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
-```
-
-```
-sudo apt update
-sudo apt install ros-melodic-desktop-full
-```
-
-```
-sudo rosdep init
-rosdep update
-```
-
-```
-echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
-source ~/.bashrc
-```
-
-```
-sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential
-```
-
-You are also recommended to get the catkin tools, the official installation guide is [here](https://catkin-tools.readthedocs.io/en/latest/installing.html):
-
-```
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" > /etc/apt/sources.list.d/ros-latest.list'
-wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
-```
-
-```
-sudo apt-get update
-sudo apt-get install python-catkin-tools
-```
-
-## UR5e ROS Driver
-
-It is highly recommended that you create a workspace for the libraries and a separate one for your projects.
-
-# Create library workspace 
-
-Please feel free to create the directory anywhere you want and with any names you like
-
-```
-mkdir -p ~/ros_lib_ws/src
-cd ~/ros_lib_ws
-catkin build
-```
-Later you can save all your libraries in ros_lib_src.
-
-
-# Download the driver
-
-All of the official ros packages are: https://github.com/UniversalRobots/
-The driver is here: https://github.com/UniversalRobots/Universal_Robots_ROS_Driver
-
-The following installation instructions are adapted from the github
-
-```
-cd ~/ros_lib_ws/src
-git clone https://github.com/UniversalRobots/Universal_Robots_ROS_Driver.git src/Universal_Robots_ROS_Driver
-git clone -b calibration_devel https://github.com/fmauch/universal_robot.git src/fmauch_universal_robot
-
-# install dependencies
-sudo apt update -qq
-rosdep update
-rosdep install --from-path src --ignore-src -y
-
-cd ..
-catkin build
-echo "source ~/ros_lib_ws/devel/setup.bash" >> ~/.bashrc
-```
-
-Install ros-controller:
-```
-sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers
-```
-
-The robot arm has been prepared to use this, so you can skip the section `Setting up a UR robot for ur_robot_driver`
-
-May need to install ros_control manually to run the exmample on github:
-
-```
-sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers
-```
-
-## UR5e simulator
-
-### Install simulator for Ubuntu 16.04 (Those are the old instructions, but may be useful for anybody who wish to install in on a Ubunt 16 machine)
+## Install simulator for Ubuntu 16.04 (Those are the old instructions, but may be useful for anybody who wish to install in on a Ubunt 16 machine)
 
 You can get the UR sim [here](https://www.universal-robots.com/download/?option=51846#section41511). We downloaded the current latest one, which is `UR Sim for Linux 5.3.1`. Download the simulator by following the [link](https://www.universal-robots.com/download/?option=51846#).
 
@@ -209,28 +115,96 @@ cd ~/ursim-5.3.1.64192
 ./start-ursim.sh
 ```
 
-# Prepare the simulator for the ros drivers
+# ROS
 
-To install the URCap, copy the file `externalcontrol-1.0.urcap` in `~/ros_lib_ws/src/src/Universal_Robots_ROS_Driver/ur_robot_driver/resources` to `~/ursim-5.3.1.64192/programs.UR5/` or `~/ursim-5.3.1.64192/programs/` if you are running the simulator, then following the instructions on https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/blob/master/ur_robot_driver/doc/install_urcap_e_series.md as if you are installing it on an actual arm. You should set the ip to be localhost (127.0.0.1) as the remote host machine on a simulator.
-
-# Run the Simulator
-
-Run the ros driver first:
-```
-roslaunch ur_robot_driver ur5e_bringup.launch robot_ip:=127.0.0.1
-```
-
-Also make sure you load the externalcontrol program on the simulator, and then click run (The same as if you are working a real arm)
-
-## Moveit
-
-Before you start the moveit planner, make sure the action server was set correctly. locate the `controllers.yaml` file under the directory `~/ros_lib_ws/src/src/fmauch_universal_robot/ur5_e_moveit_config/config`. The current name is empty, change it to with `scaled_pos_traj_controller`. Then start the moveit planner:
+The version `melodic` is used for UR5e. Basically, you just need to follow [these instructions](http://wiki.ros.org/melodic/Installation/Ubuntu). The commands are listed here for your convenience.
 
 ```
-roslaunch ur5_e_moveit_config ur5_e_moveit_planning_execution.launch
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 ```
 
-## Robotiq F2-85 Gripper
+```
+sudo apt update
+sudo apt install ros-melodic-desktop-full
+```
+
+```
+sudo rosdep init
+rosdep update
+```
+
+```
+echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+```
+
+```
+sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential
+```
+
+You are also recommended to get the catkin tools, the official installation guide is [here](https://catkin-tools.readthedocs.io/en/latest/installing.html):
+
+```
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" > /etc/apt/sources.list.d/ros-latest.list'
+wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+```
+
+```
+sudo apt-get update
+sudo apt-get install python-catkin-tools
+```
+
+# UR5e ROS Driver
+
+It is highly recommended that you create a workspace for the libraries and a separate one for your projects.
+
+## Create library workspace 
+
+Please feel free to create the directory anywhere you want and with any names you like
+
+```
+mkdir -p ~/ros_lib_ws/src
+cd ~/ros_lib_ws
+catkin build
+```
+Later you can save all your libraries in ros_lib_src.
+
+
+## Download the driver
+
+All of the official ros packages are: <https://github.com/UniversalRobots/>
+The driver is here: <https://github.com/UniversalRobots/Universal_Robots_ROS_Driver>
+
+The following installation instructions are adapted from the github
+
+```
+cd ~/ros_lib_ws/src
+git clone https://github.com/UniversalRobots/Universal_Robots_ROS_Driver.git
+git clone -b calibration_devel https://github.com/fmauch/universal_robot.git
+
+# install dependencies
+cd ..
+sudo apt update -qq
+rosdep update
+rosdep install --from-path src --ignore-src -y
+
+catkin build
+echo "source ~/ros_lib_ws/devel/setup.bash" >> ~/.bashrc
+```
+
+Install ros-controller:
+```
+sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers
+```
+
+The robot arm has been prepared to use this, so you can skip the section `Setting up a UR robot for ur_robot_driver`
+
+## (optional) Prepare the simulator for the ros drivers
+
+To install the URCap, copy the file `externalcontrol-1.0.urcap` in `~/ros_lib_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/resources` to `~/ursim-5.3.1.64192/programs.UR5/` or `~/ursim-5.3.1.64192/programs/` if you are running the simulator, then following the instructions on https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/blob/master/ur_robot_driver/doc/install_urcap_e_series.md as if you are installing it on an actual arm. You should set the ip to be localhost (127.0.0.1) as the remote host machine on a simulator.
+
+# Get the Robotiq 2F 85 Gripper
 
 Install the gripper ros config: 
 
@@ -254,23 +228,91 @@ make sure it is successful
 sudo usermod -a -G dialout <user-name>
 ```
 
-# Add gripper to URDF
+# Integrate the Gripper with the Arm
 
-# Plan with moveit
-Visualize with moveit
-```
-roslaunch moveit_setup_assistant setup_assistant.launch
-```
+Get the files from: <https://github.com/ScazLab/ur_extra_changes.git>
 
-If cannot found, install it with 
+Copy the **3** (**not** the `other` folder) directories:
+
+- universal_robot
+- robotiq
+- Universal_Robots_ROS_Driver
+
+And paste them to `\~/ros_lib_ws/src` where you cloned the robot and gripper drivers.
+
+The tool center point (TCP) is currently set as the center of the fingers of the gripper when it is closed. And make sure you build the source. 
+
+# Moveit
+
+Install moveit:
 
 ```
 sudo apt-get install ros-melodic-moveit
 ```
 
-And follow the instructions here: http://docs.ros.org/melodic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html
+Other moveit configurations has been taken care of in the previous care when you copy the files.
+
+# Start the driver
+
+## Arm only
+
+```
+roslaunch ur_robot_driver ur5e_bringup.launch robot_ip:=192.168.1.115
+```
+
+Run the driver with a simulator
+
+```
+roslaunch ur_robot_driver ur5e_bringup.launch robot_ip:=127.0.0.1
+```
+
+Make sure you load the externalcontrol program on the simulator/arm, and then click run.
 
 
-## Collaboration
+## Arm + cam + robotiq gripper 2F 85 
+
+```
+roslaunch ur_robot_driver ur5e_cam_2f85_bringup.launch
+```
+
+The robot ip has been configured to match the arm in the lab.
+
+If you would like to run it with simulator, run
+
+```
+roslaunch ur_robot_driver ur5e_cam_2f85_bringup.launch robot_ip:=127.0.0.1
+```
+
+# Start moveit
+
+## Arm only
+
+```
+roslaunch ur5_e_moveit_config ur5_e_moveit_planning_execution.launch
+```
+
+## Arm + cam + robotiq gripper 2F 85 
+
+```
+roslaunch ur5e_cam_2f85_moveit_config ur5e_cam_2f85_moveit_planning_execution.launch 
+```
+
+# controller wrapper
+
+To be done!
+
+# Change to another gripper
+
+You will need to create another bringup launch file, add the correct urdf. Please follow the ROS URDF [wiki](https://wiki.ros.org/urdf) and [tutorials](https://wiki.ros.org/urdf/Tutorials) for more information
+
+Tou will also need to egenerate the moveit config files with 
+```
+roslaunch moveit_setup_assistant setup_assistant.launch
+```
+
+And follow the instructions here: <http://docs.ros.org/melodic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html>
+
+
+# Collaboration
 
 - **Please edit this file** to add things you think are going to be useful. You can edit it by modifying [this file](https://github.com/ScazLab/ScazLab.github.io/blob/master/_posts/2019-07-12-UR5e-setup-guide.md)
