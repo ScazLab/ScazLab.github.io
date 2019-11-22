@@ -155,6 +155,16 @@ sudo apt-get update
 sudo apt-get install python-catkin-tools
 ```
 
+# Set TCP and center of gravity on the robot
+
+The information can be found here: <https://www.universal-robots.com/academy/>. Once you log in, you will see a bunch of courses, choose `3. Seeting up a tool`.
+
+The one in the lab is set as:
+
+- Position z: 165.4 mm (x and y are 0)
+- payload: 0.97 kg
+- Center of gravity: cx, cy, cz = 0.7, 1.2, 57.1 mm
+
 # UR5e ROS Driver
 
 It is highly recommended that you create a workspace for the libraries and a separate one for your projects.
@@ -252,9 +262,34 @@ sudo apt-get install ros-melodic-moveit
 
 Other moveit configurations has been taken care of in the previous care when you copy the files.
 
-# Start the driver
+# Arm + gripper ros control wrapper
 
-## Arm only
+Get the ros control wrapper for easy kinematic control/inverse kinematic control/gripper control/enter freedrive mode with ros:
+
+```
+cd ~/ros_lib_ws_src
+git clone https://github.com/ScazLab/ur_control_wrapper.git
+cd ..
+catkin build
+```
+
+For detailed usages, please go to <https://github.com/ScazLab/ur_control_wrapper.git> for a description of the topic/service to be used. It also include a demo. Here is just a brief descrption of how to start the wrapper.
+
+## Usage
+
+Set the UR arm in **Remote Control** mode. 
+
+If the hardware setting is: `UR5e arm` + `robotiq wrist camera` + `robotiq 2F 85 Gripper` with **no** adapters, then just run:
+
+```
+roslaunch ur_control_wrapper ur5e_cam_2f85_control.launch
+```
+
+Otherwise, you will need to launch `ur_control_wrapper.launch` **after** the following steps.
+
+### Start the UR arm driver
+
+#### Arm only
 
 ```
 roslaunch ur_robot_driver ur5e_bringup.launch robot_ip:=192.168.1.115
@@ -266,10 +301,12 @@ Run the driver with a simulator
 roslaunch ur_robot_driver ur5e_bringup.launch robot_ip:=127.0.0.1
 ```
 
-Make sure you load the externalcontrol program on the simulator/arm, and then click run.
+In the simulator case, make sure you load the externalcontrol program (so not with remote control in this case) on the simulator (set headless_mode to be false in the launch file), and then click run.
 
 
-## Arm + cam + robotiq gripper 2F 85 
+#### Arm + customized gripper configuration
+
+In our case, we have cam + robotiq gripper 2F 85 (Other configurations would be similar). Create an bringup launch file launch it:
 
 ```
 roslaunch ur_robot_driver ur5e_cam_2f85_bringup.launch
@@ -283,35 +320,34 @@ If you would like to run it with simulator, run
 roslaunch ur_robot_driver ur5e_cam_2f85_bringup.launch robot_ip:=127.0.0.1
 ```
 
-# Start moveit
+### Start moveit
 
-## Arm only
+#### Arm only
 
 ```
 roslaunch ur5_e_moveit_config ur5_e_moveit_planning_execution.launch
 ```
 
-## Arm + cam + robotiq gripper 2F 85 
+#### Arm + customized gripper configuration
 
-```
-roslaunch ur5e_cam_2f85_moveit_config ur5e_cam_2f85_moveit_planning_execution.launch 
-```
+Again, in our case, we have cam + robotiq gripper 2F 85. The correct urdf should be written or retrieved from the gripper supplier. However, a new urdf would need to be created to connect the arm and the gripper. For more information about urdf, please follow the ROS URDF [wiki](https://wiki.ros.org/urdf) and [tutorials](https://wiki.ros.org/urdf/Tutorials) for more information
 
-# controller wrapper
-
-To be done!
-
-# Change to another gripper
-
-You will need to create another bringup launch file, add the correct urdf. Please follow the ROS URDF [wiki](https://wiki.ros.org/urdf) and [tutorials](https://wiki.ros.org/urdf/Tutorials) for more information
-
-Tou will also need to egenerate the moveit config files with 
+You will also need to regenerate the moveit config files with 
 ```
 roslaunch moveit_setup_assistant setup_assistant.launch
 ```
 
 And follow the instructions here: <http://docs.ros.org/melodic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html>
 
+You will need to create the \*\*\*\_moveit\_planning\_execution.launch file. And update `move_group.launch` and `planning_context.launch` to accomodate the `limited` arm driver args.
+
+Launch the moveit launch file with:
+
+```
+roslaunch ur5e_cam_2f85_moveit_config ur5e_cam_2f85_moveit_planning_execution.launch 
+```
+
+An example of customized arm can be found here: <https://github.com/ScazLab/ur_extra_changes.git>. Those are the files changed/added .
 
 # Collaboration
 
