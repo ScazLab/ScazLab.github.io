@@ -349,6 +349,8 @@ roslaunch ur5e_cam_2f85_moveit_config ur5e_cam_2f85_moveit_planning_execution.la
 
 An example of customized arm can be found here: <https://github.com/ScazLab/ur_extra_changes.git>. Those are the files changed/added .
 
+# Moving the Arm with ActionLib
+
 # Collaboration
 
 - **Please edit this file** to add things you think are going to be useful. You can edit it by modifying [this file](https://github.com/ScazLab/ScazLab.github.io/blob/master/_posts/2019-07-12-UR5e-setup-guide.md)
