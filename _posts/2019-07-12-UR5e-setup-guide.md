@@ -1,7 +1,7 @@
 ---
 layout: post
 title: UR5e Setup Guide
-author: Meiying Qin
+authors: Meiying Qin, Debasmita Ghose
 description: "Setup Guide for UR5e"
 tags: [UR5e,robot,tutorial]
 categories: [wiki]
@@ -9,6 +9,7 @@ comments: false
 permalink: ur5e_setup_guide.html
 excerpt_separator: <!-- More -->
 ---
+
 
 Welcome to the Setup Guide for the UR5e robot. (Added instructions for the new UR ros driver)
 
@@ -350,6 +351,25 @@ roslaunch ur5e_cam_2f85_moveit_config ur5e_cam_2f85_moveit_planning_execution.la
 An example of customized arm can be found here: <https://github.com/ScazLab/ur_extra_changes.git>. Those are the files changed/added .
 
 # Moving the Arm with ActionLib
+
+## Robot
+On the UR tablet, select Remote control from the top right corner and load the file `external control`. Then hit play.
+
+## Code
+
+To get started, run the bringup script of the robot after checking the IP is available on the tablet:
+```
+roslaunch ur_robot_driver ur5e_bringup.launch robot_ip:=192.168.1.115
+```
+
+For the new driver, the action lib server is located in the namespace:
+`/scaled_pos_traj_controller`
+
+To move the robot to specified joint angle positions, launch the script: (this script launches the actionlib client in the correct namespace)
+```
+rosrun ur_xylophone play_xylophone
+```
+
 
 # Collaboration
 
