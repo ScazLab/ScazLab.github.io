@@ -263,6 +263,17 @@ sudo apt-get install ros-melodic-moveit
 
 Other moveit configurations has been taken care of in the previous care when you copy the files.
 
+Install the trac-ik solver:
+```
+cd ros_lib_ws/src
+git clone https://bitbucket.org/traclabs/trac_ik.git
+
+rosdep update
+rosdep install --from-paths src/ --ignore-src --rosdistro melodic
+cd ..
+catkin build
+```
+
 # Arm + gripper ros control wrapper
 
 Get the ros control wrapper for easy kinematic control/inverse kinematic control/gripper control/enter freedrive mode with ros:
