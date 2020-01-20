@@ -265,13 +265,7 @@ Other moveit configurations has been taken care of in the previous care when you
 
 Install the trac-ik solver:
 ```
-cd ros_lib_ws/src
-git clone https://bitbucket.org/traclabs/trac_ik.git
-
-rosdep update
-rosdep install --from-paths src/ --ignore-src --rosdistro melodic
-cd ..
-catkin build
+sudo apt-get install ros-melodic-trac-ik-kinematics-plugin
 ```
 
 # Arm + gripper ros control wrapper
