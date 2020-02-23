@@ -355,6 +355,47 @@ roslaunch ur5e_cam_2f85_moveit_config ur5e_cam_2f85_moveit_planning_execution.la
 
 An example of customized arm can be found here: <https://github.com/ScazLab/ur_extra_changes.git>. Those are the files changed/added .
 
+# Examples
+
+Now all the setup has been configured. We created a convenient launch file in `ur_control_wrapper`. So to use the robot in the lab, you just need to launch:
+
+```
+roslaunch ur_control_wrapper ur5e_cam_2f85_control_unlimited.launch
+```
+
+If you see unintended/weird trajectory a lot, you can instead use 
+
+```
+roslaunch ur_control_wrapper ur5e_cam_2f85_control.launch
+```
+
+In this launch file, the ranges of each range (configured in file: `universal_robot/ur_e_description/urdf/ur5e_cam_2f85_joint_limited_robot.urdf.xacro` ) is limited to:
+
+```
+<xacro:ur5e_robot prefix="" joint_limited="true"
+    shoulder_pan_lower_limit="${-pi / 2.0}" shoulder_pan_upper_limit="${pi}"
+    shoulder_lift_lower_limit="${-pi}" shoulder_lift_upper_limit="${0.0}"
+    elbow_joint_lower_limit="${-pi}" elbow_joint_upper_limit="${pi}"
+    wrist_1_lower_limit="${-pi}" wrist_1_upper_limit="${pi}"
+    wrist_2_lower_limit="${-pi}" wrist_2_upper_limit="${pi}"
+    wrist_3_lower_limit="${-2 * pi}" wrist_3_upper_limit="${pi}"
+    kinematics_file="${load_yaml('$(arg kinematics_config)')}"
+  />
+```
+
+If any of position of the joint is outside of the range, the planner cannot find any solutions. Please set the robot to the following default position, by running the demo in ur_control_wrapper (**please put your hand on the emergency button**, please double check that the ur_control_wrapper is the most update to date one):
+
+```
+rosrun ur_control_wrapper demo.py
+```
+
+where the angles are roughly in the middle of the range:
+
+```
+joints.name = ["elbow_joint", "shoulder_lift_joint", "shoulder_pan_joint", "wrist_1_joint", "wrist_2_joint", "wrist_3_joint"]
+joints.position = [-np.pi / 3.0, -2.0 * np.pi / 3, 0.0, np.pi * 2.0 / 3.0, -np.pi / 2.0, 0.0]
+```
+
 # Moving the Arm with ActionLib
 
 ## Robot
