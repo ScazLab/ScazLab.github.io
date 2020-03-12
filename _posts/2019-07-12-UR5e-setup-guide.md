@@ -415,7 +415,15 @@ To move the robot to specified joint angle positions, launch the script: (this s
 ```
 rosrun ur_xylophone play_xylophone
 ```
+# Changes to ros_control in February 2020
 
+Reference: https://answers.ros.org/question/343775/bringing-up-ur5-controller-spawner-shutted-down/  
+New ROS Driver for the UR arm: https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/tree/fix_controller_switch
+
+The following changes were made to the UR robot driver (the repository where the bringup files exist):
+- Switched from `master` branch to `fix_controller_switch` branch
+- `catkin build`
+- `source ~/.bashrc`
 
 # Collaboration
 
