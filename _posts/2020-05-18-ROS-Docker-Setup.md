@@ -50,3 +50,8 @@ Follow instructions [here](https://docs.docker.com/get-docker/) to install docke
 `rostopic list`
 
 
+
+
+To edit this document make changes [here](https://github.com/ScazLab/ScazLab.github.io/blob/master/_posts/2020-05-18-ROS-Docker-Setup.md)
+
+
