@@ -10,19 +10,28 @@ permalink: ros_docker_setup.html
 excerpt_separator: <!-- More -->
 ---
 
+Welcome to the Setup Guide for ROS in Docker. 
 
-# Docker Setup
+<!-- More -->
 
-## Install Docker
+
+# Install Docker
 Follow instructions [here](https://docs.docker.com/get-docker/) to install docker for your Operating System. 
 
-## Steps for Setting up ROS inside the Docker
+# Steps for Setting up ROS inside the Docker
+
+## One Time Setup
 
 - Pull the ROS docker image by running (one time setup):  
 `docker pull ros`
 
-- Spin up a container using the command:  
-`docker run -it ros`
+- In your local machine clone the repository using the command:  
+`git clone <repository https: path>`
+
+- Spin up a container with the git repository mounted using the command:  
+`docker run -v <path_to_repository_in_your_local_machine>:/code/  -it ros`
+
+## Instructions for using the same container every time
 
 - Inside the container run `roscore`
  
