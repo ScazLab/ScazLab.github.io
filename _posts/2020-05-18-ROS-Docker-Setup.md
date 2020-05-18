@@ -16,7 +16,9 @@ Welcome to the Setup Guide for ROS in Docker.
 
 
 # Install Docker
-Follow instructions [here](https://docs.docker.com/get-docker/) to install docker for your Operating System. 
+ 
+- Create an account on [DockerHub](https://hub.docker.com/)
+- Follow instructions [here](https://docs.docker.com/get-docker/) to install docker for your Operating System. 
 
 # Steps for Setting up ROS inside the Docker
 
