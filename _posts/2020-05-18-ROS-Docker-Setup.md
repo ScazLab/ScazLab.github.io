@@ -35,20 +35,22 @@ Follow instructions [here](https://docs.docker.com/get-docker/) to install docke
 
 - Inside the container run `roscore`
  
-- On a new terminal, list the available containers using the command:  
-`docker ps -l`
+- On a new terminal, list all the available containers using the command (The first 3 characters of the container ID or the name of the container listed in the last column can be used as the container_name):  
+`docker ps`
 
-- Find the name of the container (use either the first 3 characters of the container ID or the name of the container listed in the last column)
-
-- Start an additional bash session in the same container by running using the container name from the previous step:   
+- If there is a container found, it means that there is a container available and it is running. In order to enter that particular container use the command:   
 `docker exec -it <container_name> bash`
+
+- If there is no container found after running `docker ps`, run `docker ps -a`. If there is a container found, it means that the container exists but is not running. In order to enter into the container run:  
+`docker start <container_name>`   
+`docker exec -it <container_name> bash`
+This will start an additional bash session in the same container.    
 
 - Once inside the container, source the `setup.bash` file using:  
 `source /opt/ros/melodic/setup.bash`
 
 - To test if the instance is connected to the same `ros-master` run:  
 `rostopic list`
-
 
 
 
