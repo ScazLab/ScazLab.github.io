@@ -35,7 +35,7 @@ Follow instructions [here](https://docs.docker.com/get-docker/) to install docke
 
 - Inside the container run `roscore`
  
-- On a new terminal, list all the available containers using the command (The first 3 characters of the container ID or the name of the container listed in the last column can be used as the container_name):  
+- On a new terminal, list all the available containers using the command (The first 3 characters of the container ID or the name of the container listed in the last column can be used as the `container_name`):  
 `docker ps`
 
 - If there is a container found, it means that there is a container available and it is running. In order to enter that particular container use the command:   
