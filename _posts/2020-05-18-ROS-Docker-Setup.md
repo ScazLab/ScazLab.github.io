@@ -75,10 +75,11 @@ If the docker was built, the output of this command would look like [this](https
  - Spin up a container with the wodoto repository mounted using the command (Replace `path-to-repository` and `hostname` appropriately):  
  `sudo docker run -it -v ~/.ssh:/root/.ssh -v <path-to-wodoto-repository>:/root/catkin_ws --network host --env ROS_MASTER_URI=http://<hostname>:11311 --name ros ros:melodic-desktop-full`
  
- - Add the [following lines](https://github.com/ScazLab/wodoto/blob/master/Docker_Files/.bash_profile) to your `~/.bash_profile` file on your local machine replacing `path-to-repository` and `hostname` appropriately. 
+ - Add the [following lines](https://github.com/ScazLab/wodoto/blob/master/Docker_Files/.bash_profile) to your `~/.bash_profile` file on your local machine replacing `path-to-repository` and `hostname` appropriately. Then source it by running:  
+ `source ~/.bash_profile`
 
 
-## Commands to Start and Test the ROS Docker
+## Commands to Start and Test the ROS Docker for the First Time
 
 - Run the ROS Docker Container created in the previous step by:  
 `sudo docker start ros`  
@@ -110,17 +111,38 @@ The topic `/test` should appear on the list.
 `rostopic echo /test`
 
 
+## Instructions for using the same container every time and running code
 
+- List all the available containers using the command (The first 3 characters of the container ID or the name of the container listed in the last column can be used as the `container_name`):  
+`docker ps`
 
+- If there is a container found, it means that there is a container available and it is running. In order to enter that particular container use the command:   
+`docker exec -it ros bash`
 
+- If there is no container found after running `docker ps`, run `docker ps -a`. If there is a container found, it means that the container exists but is not running. In order to enter into the container run:  
+`docker start ros`   
+`docker exec -it ros bash`  
+ The prompt will change to `root@<hostname>:/# ` once we are inside the container. 
 
+- Once inside the container, source the `setup.bash` file using:  
+`source /opt/ros/melodic/setup.bash`
 
-## Instructions for using the same container every time
+- In order to run ROS nodes, first run `roscore &` and send it to the background by running `:`. To spin up the required node, use the appropriate `rosrun` or `roslaunch` command as we do on the robot. 
 
-## (Shortcuts) for Working with the Docker
+## Shortcuts for Working with the Docker
+
+Some aliases have been added on the `.bash_profile` file, to make working with this particular docker easier. To refer to what each alias does, see [here](https://github.com/ScazLab/wodoto/blob/master/Docker_Files/.bash_profile)
+
+They are described here:
+
+- `build_ros_docker` - build the ROS docker (one-time)
+- `run_docker` - run the docker with the code mounted to create a container (one-time)
+- `list_images` - list docker images (one-time)
+- `list_container` - list running containers
+- `list_all_container` - list all running as well as stopped containers
+- `exec_docker` - execute a running container
 
  
-
 
 To edit this document make changes [here](https://github.com/ScazLab/ScazLab.github.io/blob/master/_posts/2020-05-18-ROS-Docker-Setup.md)
 
