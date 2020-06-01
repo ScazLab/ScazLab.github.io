@@ -65,7 +65,7 @@ This will start an additional bash session in the same container.
 
 - Test if the docker was built using:  
 `sudo docker images`  
-If the docker was built, the output of this command would look like [this]("https://github.com/ScazLab/ScazLab.github.io/blob/master/images/sudo_docker_images.png") :  
+If the docker was built, the output of this command would look like [this](https://github.com/ScazLab/ScazLab.github.io/blob/master/images/sudo_docker_images.png) :  
 
  
  - Obtain the hostname for your system by running: `hostnamectl`
