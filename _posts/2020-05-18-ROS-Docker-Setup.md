@@ -76,10 +76,48 @@ If the docker was built, the output of this command would look like [this](https
  `sudo docker run -it -v ~/.ssh:/root/.ssh -v <path-to-wodoto-repository>:/root/catkin_ws --network host --env ROS_MASTER_URI=http://<hostname>:11311 --name ros ros:melodic-desktop-full`
  
  - Add the [following lines](https://github.com/ScazLab/wodoto/blob/master/Docker_Files/.bash_profile) to your `~/.bash_profile` file on your local machine replacing `path-to-repository` and `hostname` appropriately. 
- 
+
+
+## Commands to Start and Test the ROS Docker
+
+- Run the ROS Docker Container created in the previous step by:  
+`sudo docker start ros`  
+`docker exec -it ros bash`  
+After running this, we would have entered inside the container, and the prompt will change to `root@<hostname>:/# `
+
+- Inside the container source the `setup.sh` file by running:  
+`source /opt/ros/melodic/setup.sh`
+
+- Check if the `catkin_ws` is present inside the `root` directory inside the container. 
+
+- The code files should be present inside `root/catkin_ws/` and the ROS packages should be present inside `root/catkin_ws/src` 
+
+- Run `catkin_make` inside `root/catkin_ws`. After `catkin_make`, check if `build` and `devel` directories are created inside the `catkin_ws`. Then run:  
+`source devel/setup.bash`
+
+- Run the following series of commands to test if we have a running ROS installation and can publish on a topic from within the container.  
+`roscore &`  
+`:`  
+`rostopic pub -r 1 /test std_msgs/String "test" &`  
+`:`  
+These commands mean that we first run `roscore` in the background, and publish a `test` message on the `/test` topic and send that process to the background. 
+
+- In order to check if the message was published on the topic run:  
+`rostopic list`  
+The topic `/test` should appear on the list. 
+
+- To verify if the `test` message is being published on the `/test` topic run:  
+`rostopic echo /test`
+
+
+
+
+
+
 
 ## Instructions for using the same container every time
 
+## (Shortcuts) for Working with the Docker
 
  
 
