@@ -77,6 +77,10 @@ If the docker was built, the output of this command would look like [this](https
  
  - Add the [following lines](https://github.com/ScazLab/wodoto/blob/master/Docker_Files/.bash_profile) to your `~/.bash_profile` file on your local machine replacing `path-to-repository` and `hostname` appropriately. Then source it by running:  
  `source ~/.bash_profile`
+ 
+- Install `pip` inside the container by following [these](https://pip.pypa.io/en/stable/installing/) instructions.
+
+- Install `vim` inside the container by following [these](https://phoenixnap.com/kb/how-to-install-vim-ubuntu) instructions
 
 
 ## Commands to Start and Test the ROS Docker for the First Time
