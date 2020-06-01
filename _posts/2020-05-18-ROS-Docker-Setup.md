@@ -20,7 +20,7 @@ Welcome to the Setup Guide for ROS in Docker.
 - Create an account on [DockerHub](https://hub.docker.com/)
 - Follow instructions [here](https://docs.docker.com/get-docker/) to install docker for your Operating System. 
 
-# Steps for Setting up ROS inside the Docker
+# General ROS Docker Commands
 
 ## One Time Setup
 
@@ -54,6 +54,28 @@ This will start an additional bash session in the same container.
 - To test if the instance is connected to the same `ros-master` run:  
 `rostopic list`
 
+# Commands Specific to the Watch One, Do One, Teach One Project
+
+## One Time Setup
+
+- Download the Dockerfile located [here](https://github.com/ScazLab/wodoto/blob/master/Docker_Files/Dockerfile)
+
+- Navigate to the location where the Dockerfile is saved on your local machine and build the docker using:  
+`sudo docker build -t ros:melodic-desktop-full .`
+
+- Test if the docker was built using:  
+`sudo docker images`  
+If the docker was built, the output of this command would look like:  
+<p>
+<img src="https://github.com/ScazLab/ScazLab.github.io/blob/master/images/sudo_docker_images.png"/>
+</p>
+ 
+ - Obtain the hostname for your system by running: `hostnamectl`
+ 
+ - Pull the [wodoto repository](https://github.com/ScazLab/wodoto) in your local machine if you have not done so already. 
+ 
+ - Spin up a container with the wodoto repository mounted using the command (Replace `path-to-repository` and `hostname` appropriately):  
+ `sudo docker run -it -v ~/.ssh:/root/.ssh -v <path-to-wodoto-repository>:/root/catkin_ws --network host --env ROS_MASTER_URI=http://<hostname>:11311 --name ros ros:melodic-desktop-full`
 
 
 To edit this document make changes [here](https://github.com/ScazLab/ScazLab.github.io/blob/master/_posts/2020-05-18-ROS-Docker-Setup.md)
