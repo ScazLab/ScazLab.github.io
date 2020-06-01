@@ -67,7 +67,7 @@ This will start an additional bash session in the same container.
 `sudo docker images`  
 If the docker was built, the output of this command would look like:  
 <p>
-<img src="https://github.com/ScazLab/ScazLab.github.io/blob/master/images/sudo_docker_images.png"/>
+<img src="sudo_docker_images.png"/>
 </p>
  
  - Obtain the hostname for your system by running: `hostnamectl`
