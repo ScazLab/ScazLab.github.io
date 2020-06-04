@@ -96,7 +96,7 @@ The topic `/test` should appear on the list.
  The prompt will change to `root@<hostname>:/# ` once we are inside the container. 
 
 - Once inside the container, source the `setup.bash` file using:  
-`source /opt/ros/melodic/setup.bash`
+`source /opt/ros/melodic/setup.bash` and inside the `catkin_ws` run `source devel/setup.bash`. 
 
 - In order to run ROS nodes, first run `roscore &` and send it to the background by running `:`. To spin up the required node, use the appropriate `rosrun` or `roslaunch` command as we do on the robot. 
 
@@ -143,7 +143,7 @@ They are described here:
 This will start an additional bash session in the same container.    
 
 - Once inside the container, source the `setup.bash` file using:  
-`source /opt/ros/melodic/setup.bash` and inside the `catkin_ws` run `source devel/setup.bash`
+`source /opt/ros/melodic/setup.bash` and inside the `catkin_ws` run `source devel/setup.bash`.
 
 - To test if the instance is connected to the same `ros-master` run:  
 `rostopic list`
