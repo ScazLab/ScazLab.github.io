@@ -143,7 +143,7 @@ They are described here:
 This will start an additional bash session in the same container.    
 
 - Once inside the container, source the `setup.bash` file using:  
-`source /opt/ros/melodic/setup.bash`
+`source /opt/ros/melodic/setup.bash` and inside the `catkin_ws` run `source devel/setup.bash`
 
 - To test if the instance is connected to the same `ros-master` run:  
 `rostopic list`
