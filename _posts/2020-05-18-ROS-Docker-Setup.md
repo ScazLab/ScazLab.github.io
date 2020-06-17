@@ -35,7 +35,7 @@ Welcome to the Setup Guide for ROS in Docker.
 If the docker was built, the output of this command would look like [this](https://github.com/ScazLab/ScazLab.github.io/blob/master/images/sudo_docker_images.png)
 
  
- - Obtain the hostname for your system by running: `hostnamectl`
+ - Obtain the hostname for your system by running: `hostnamectl`. (`localhost`)
  
  - Pull the [wodoto repository](https://github.com/ScazLab/wodoto) in your local machine if you have not done so already. 
  
