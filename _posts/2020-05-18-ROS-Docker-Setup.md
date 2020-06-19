@@ -35,12 +35,12 @@ Welcome to the Setup Guide for ROS in Docker.
 If the docker was built, the output of this command would look like [this](https://github.com/ScazLab/ScazLab.github.io/blob/master/images/sudo_docker_images.png)
 
  
- - Obtain the hostname for your system by running: `hostnamectl`. (`localhost`)
+ - Obtain the hostname for your system by running: `hostnamectl`. ( Hostname can be `localhost` too)
  
  - Pull the [wodoto repository](https://github.com/ScazLab/wodoto) in your local machine if you have not done so already. 
  
- - Spin up a container with the wodoto repository mounted using the command (Replace `path-to-repository` and `hostname` appropriately):  
- `sudo docker run -it -v ~/.ssh:/root/.ssh -v <path-to-wodoto-repository>:/root/catkin_ws --network host --env ROS_MASTER_URI=http://<hostname>:11311 --name ros ros:melodic-desktop-full`
+ - Spin up a container with the wodoto repository and the sound drivers mounted using the command (Replace `path-to-repository` and `hostname` appropriately):  
+ `sudo docker run -it -v ~/.ssh:/root/.ssh -v /dev/snd:/dev/snd --privileged  -v <path-to-wodoto-repository>:/root/catkin_ws --network host --env ROS_MASTER_URI=http://<hostname>:11311 --name ros_sound ros:melodic-desktop-full `
  
  - Add the [following lines](https://github.com/ScazLab/wodoto/blob/master/Docker_Files/.bash_profile) to your `~/.bash_profile` file on your local machine replacing `path-to-repository` and `hostname` appropriately. Then source it by running:  
  `source ~/.bash_profile`
