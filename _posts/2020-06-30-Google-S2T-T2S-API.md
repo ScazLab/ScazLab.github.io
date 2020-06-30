@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Google Speech2Text and Text2Speech API Reference
-authors: Debasmita Ghose
+author: Debasmita Ghose
 description: "Instructions on getting Google's Speech2Text and Text2Speech API to work with ROS"
 tags: 
 categories: [wiki]
