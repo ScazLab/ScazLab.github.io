@@ -1,16 +1,16 @@
 ---
 layout: post
-title: ROS Docker Setup
+title: Google Speech2Text and Text2Speech API Reference
 authors: Debasmita Ghose
-description: "Setup Guide for setting up a docker with ROS"
+description: "Instructions on getting Google's Speech2Text and Text2Speech API to work with ROS"
 tags: 
 categories: [wiki]
 comments: false
-permalink: ros_docker_setup.html
+permalink: google_s2t_t2s.html
 excerpt_separator: <!-- More -->
 ---
 
-Welcome to the Setup Guide for ROS in Docker. 
+Welcome to the API Reference Guide for Google Speech2Text and Text2Speech. 
 
 <!-- More -->
 
