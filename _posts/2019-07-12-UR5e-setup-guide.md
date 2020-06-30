@@ -1,7 +1,7 @@
 ---
 layout: post
 title: UR5e Setup Guide
-authors: Meiying Qin, Debasmita Ghose
+author: Meiying Qin, Debasmita Ghose
 description: "Setup Guide for UR5e"
 tags: [UR5e,robot,tutorial]
 categories: [wiki]

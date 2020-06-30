@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ROS Docker Setup
-authors: Debasmita Ghose
+author: Debasmita Ghose
 description: "Setup Guide for setting up a docker with ROS"
 tags: 
 categories: [wiki]
