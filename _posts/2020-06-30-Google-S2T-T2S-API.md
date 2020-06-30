@@ -15,3 +15,22 @@ Welcome to the API Reference Guide for Google Speech2Text and Text2Speech.
 <!-- More -->
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+To edit this document, make changes [here](https://github.com/ScazLab/ScazLab.github.io/blob/master/_posts/2020-06-30-Google-S2T-T2S-API.md)
+
