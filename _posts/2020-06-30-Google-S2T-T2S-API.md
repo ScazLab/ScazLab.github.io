@@ -14,4 +14,4 @@ Welcome to the API Reference Guide for Google Speech2Text and Text2Speech.
 
 <!-- More -->
 
-# Google Speech2Text and Text2Speech API Reference
+
