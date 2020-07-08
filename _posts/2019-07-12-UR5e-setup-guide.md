@@ -185,14 +185,14 @@ Later you can save all your libraries in ros_lib_src.
 ## Download the driver
 
 All of the official ros packages are: <https://github.com/UniversalRobots/>
-The driver is here: <https://github.com/UniversalRobots/Universal_Robots_ROS_Driver>
+The original driver is here: <https://github.com/UniversalRobots/Universal_Robots_ROS_Driver>
 
 The following installation instructions are adapted from the github
 
 ```
 cd ~/ros_lib_ws/src
-git clone https://github.com/UniversalRobots/Universal_Robots_ROS_Driver.git
-git clone -b calibration_devel https://github.com/fmauch/universal_robot.git
+git clone https://github.com/ScazLab/Universal_Robots_ROS_Driver.git
+git clone https://github.com/ScazLab/universal_robot.git
 
 # install dependencies
 cd ..
@@ -213,7 +213,7 @@ The robot arm has been prepared to use this, so you can skip the section `Settin
 
 ## (optional) Prepare the simulator for the ros drivers
 
-To install the URCap, copy the file `externalcontrol-1.0.urcap` in `~/ros_lib_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/resources` to `~/ursim-5.3.1.64192/programs.UR5/` or `~/ursim-5.3.1.64192/programs/` if you are running the simulator, then following the instructions on https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/blob/master/ur_robot_driver/doc/install_urcap_e_series.md as if you are installing it on an actual arm. You should set the ip to be localhost (127.0.0.1) as the remote host machine on a simulator.
+To install the URCap, copy the file `externalcontrol-1.0.urcap` in `~/ros_lib_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/resources` to `~/ursim-5.3.1.64192/programs.UR5/` or `~/ursim-5.3.1.64192/programs/` if you are running the simulator, then following the instructions on <https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/blob/master/ur_robot_driver/doc/install_urcap_e_series.md> as if you are installing it on an actual arm. You should set the ip to be localhost (127.0.0.1) as the remote host machine on a simulator.
 
 # Get the Robotiq 2F 85 Gripper
 
@@ -221,7 +221,7 @@ Install the gripper ros config:
 
 ```
 cd ros_lib_ws/src
-git clone https://github.com/ros-industrial/robotiq.git
+git clone https://github.com/ScazLab/robotiq.git
 sudo apt-get install ros-melodic-soem
 cd ..
 rosdep update
@@ -239,7 +239,9 @@ make sure it is successful
 sudo usermod -a -G dialout <user-name>
 ```
 
-# Integrate the Gripper with the Arm
+# ~~Integrate the Gripper with the Arm~~ (Skip this step)
+
+This step is no longer needed. However, to set up a robot with a different gripper, what to change can be referenced here. Bascially the changes in universal_robot, robotiq, Universal_Robots_ROS_Driver as mentioned below. The moveit srdf can be generated with the MoveIt Setup Assistant <http://docs.ros.org/melodic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html>.
 
 Get the files from: <https://github.com/ScazLab/ur_extra_changes.git>
 
@@ -272,6 +274,8 @@ sudo apt-get install ros-melodic-trac-ik-kinematics-plugin
 
 Get the ros control wrapper for easy kinematic control/inverse kinematic control/gripper control/enter freedrive mode with ros:
 
+For general public: 
+
 ```
 cd ~/ros_lib_ws_src
 git clone https://github.com/ScazLab/ur_control_wrapper.git
@@ -280,6 +284,15 @@ catkin build
 ```
 
 For detailed usages, please go to <https://github.com/ScazLab/ur_control_wrapper.git> for a description of the topic/service to be used. It also include a demo. Here is just a brief descrption of how to start the wrapper.
+
+For scaz lab members, please get this repo instead: 
+
+```
+cd ~/ros_lib_ws_src
+git clone https://github.com/ScazLab/control_wrapper.git
+cd ..
+catkin build
+```
 
 ## Usage
 
