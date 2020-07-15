@@ -107,14 +107,25 @@ rosdep install -r --from-paths .
 cd ../..
 catkin build iai_kinect2 -DCMAKE_BUILD_TYPE="Release"
 ```
-
-If you see the error message `[ERROR] [DepthRegistrationOpenCL::init] Build Log: stringInput.cl:190:31: error: call to 'sqrt' is ambiguous`. To fix this, in kinect2_bridge.launch, update `depth_method` to `opengl`(Or the one works for you), and `reg_method` to `cpu`
-(reference: <https://lubosz.wordpress.com/2016/03/29/viewing-kinect-v2-point-clouds-with-ros-in-arch-linux/>)
+ 
+It is totally ok to see the following error messages and you can safely ignore them:
+```
+ERROR: the following packages/stacks could not have their rosdep keys resolved
+to system dependencies:
+kinect2_viewer: Cannot locate rosdep definition for [cv_bridge]
+kinect2_registration: Cannot locate rosdep definition for [cv_bridge]
+iai_kinect2: Cannot locate rosdep definition for [kinect2_registration]
+kinect2_calibration: Cannot locate rosdep definition for [cv_bridge]
+kinect2_bridge: Cannot locate rosdep definition for [cv_bridge]
+```
 
 Test
 ```
 roslaunch kinect2_bridge kinect2_bridge.launch
 ```
+
+If you see the error message `[ERROR] [DepthRegistrationOpenCL::init] Build Log: stringInput.cl:190:31: error: call to 'sqrt' is ambiguous`. To fix this, in kinect2_bridge.launch, update `depth_method` to `opengl`(Or the one works for you), and `reg_method` to `cpu`
+(reference: <https://lubosz.wordpress.com/2016/03/29/viewing-kinect-v2-point-clouds-with-ros-in-arch-linux/>)
 
 To view the results
 ```
