@@ -18,7 +18,7 @@ Welcome to the Setup Guide for Kinect2.
 
 The following instructions has been tested on Ubuntu 14.04 with ros indigo and Ubuntu 18.04 with ros melodic
 
-### Install libfreenect2
+## Install libfreenect2 on Ubuntu 18
 
 Install necessary libs
 clone the libfreenect2 to your home folder (at least not the ros folder, as this is not a ros project)
@@ -35,12 +35,12 @@ sudo apt-get install libturbojpeg0-dev
 sudo apt-get update
 sudo apt-get install libglfw3-dev
 
-sudo apt-get install beignet-dev (find the appropriate one)
+sudo apt-get install beignet-dev # (find the appropriate one)
 ```
 
 Then install the python freenect2 lib
 
-add the following line `export PKG_CONFIG_PATH=$HOME/freenect2/lib/pkgconfig` and `export LD_LIBRARY_PATH=$HOME/freenect2/lib` to `~/.bashrc`. 
+add the following line `export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$HOME/freenect2/lib/pkgconfig` and `export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/freenect2/lib` to `~/.bashrc`. 
 
 Build:
 ```
@@ -55,9 +55,48 @@ Setup and test:
 sudo cp ../platform/linux/udev/90-kinect2.rules /etc/udev/rules.d/
 ./bin/Protonect
 ```
-If it runs successfully, You will see the demo.
+If it runs successfully, You will see the demo. You may need to replug kinect.
 
-### Install iai-kinect2
+## Install libfreenect2 on Ubuntu 14
+
+Install necessary libs
+clone the libfreenect2 to your home folder (at least not the ros folder, as this is not a ros project)
+
+```
+git clone https://github.com/OpenKinect/libfreenect2.git
+cd libfreenect2
+cd depends; ./download_debs_trusty.sh
+cd ..
+```
+
+```
+sudo apt-get install build-essential cmake pkg-config
+sudo dpkg -i debs/libusb*deb
+sudo apt-get install libturbojpeg libjpeg-turbo8-dev
+sudo dpkg -i debs/libglfw3*deb; sudo apt-get install -f
+sudo apt-add-repository ppa:floe/beignet; sudo apt-get update; sudo apt-get install beignet-dev; sudo dpkg -i debs/ocl-icd*deb #(find the appropriate one)
+```
+
+Then install the python freenect2 lib
+
+add the following line `export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$HOME/freenect2/lib/pkgconfig` and `export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/freenect2/lib` to `~/.bashrc`. 
+
+Build:
+```
+mkdir build && cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/freenect2 -Dfreenect2_DIR=$HOME/freenect2/lib/cmake/freenect2
+make
+make install
+```
+
+Setup and test:
+```
+sudo cp ../platform/linux/udev/90-kinect2.rules /etc/udev/rules.d/
+./bin/Protonect
+```
+If it runs successfully, You will see the demo. You may need to replug kinect.
+
+## Install iai-kinect2
 
 clone the repo to your ros workspace
 
@@ -68,14 +107,25 @@ rosdep install -r --from-paths .
 cd ../..
 catkin build iai_kinect2 -DCMAKE_BUILD_TYPE="Release"
 ```
-
-If you see the error message `[ERROR] [DepthRegistrationOpenCL::init] Build Log: stringInput.cl:190:31: error: call to 'sqrt' is ambiguous`. To fix this, in kinect2_bridge.launch, update `depth_method` to `opengl`(Or the one works for you), and `reg_method` to `cpu`
-(reference: <https://lubosz.wordpress.com/2016/03/29/viewing-kinect-v2-point-clouds-with-ros-in-arch-linux/>)
+ 
+It is totally ok to see the following error messages and you can safely ignore them:
+```
+ERROR: the following packages/stacks could not have their rosdep keys resolved
+to system dependencies:
+kinect2_viewer: Cannot locate rosdep definition for [cv_bridge]
+kinect2_registration: Cannot locate rosdep definition for [cv_bridge]
+iai_kinect2: Cannot locate rosdep definition for [kinect2_registration]
+kinect2_calibration: Cannot locate rosdep definition for [cv_bridge]
+kinect2_bridge: Cannot locate rosdep definition for [cv_bridge]
+```
 
 Test
 ```
 roslaunch kinect2_bridge kinect2_bridge.launch
 ```
+
+If you see the error message `[ERROR] [DepthRegistrationOpenCL::init] Build Log: stringInput.cl:190:31: error: call to 'sqrt' is ambiguous`. To fix this, in kinect2_bridge.launch, update `depth_method` to `opengl`(Or the one works for you), and `reg_method` to `cpu`
+(reference: <https://lubosz.wordpress.com/2016/03/29/viewing-kinect-v2-point-clouds-with-ros-in-arch-linux/>)
 
 To view the results
 ```
