@@ -158,8 +158,8 @@ Licensed under the MIT License.
 
 <launch>
   <arg name="tf_prefix"         default="" />                       <!-- Prefix added to tf frame IDs. It typically contains a trailing '_' unless empty. -->
-  <arg name="master_tf_prefix"         default="master" />
-  <arg name="sub_tf_prefix"         default="sub" />
+  <arg name="master_tf_prefix"         default="master_" />
+  <arg name="sub_tf_prefix"         default="sub_" />
   <arg name="overwrite_robot_description" default="true" />         <!-- Flag to publish a standalone azure_description instead of the default robot_descrition parameter-->
 
   <group if="$(arg overwrite_robot_description)">
