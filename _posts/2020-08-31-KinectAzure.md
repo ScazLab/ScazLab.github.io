@@ -266,17 +266,31 @@ You can safely ignore the error as mentioned in <https://github.com/microsoft/Az
 
 The factory calibration do not seem to be ideal, if a hand--eye calibration or multi--azure calibration is needed, it may be necessary to recalibrate the device. 
 
-To calibrate the device, please get the code from: <https://github.com/ScazLab/azure_customize_calibration>. The code is adapted from Kinect One's calibration code from: <https://github.com/code-iai/iai_kinect2/tree/master/kinect2_calibration>, since the two device uses similar techniques for depth perception. Therefore, the calibration instructions are very similar. Here are the commands that corresponds to the *Detailed Steps* in the kinect One instruction.
+To calibrate the device, please get the code from: <https://github.com/ScazLab/azure_customize_calibration>. The code is adapted from Kinect One's calibration code from: <https://github.com/code-iai/iai_kinect2/tree/master/kinect2_calibration>, since the two device uses similar techniques for depth perception. Therefore, the calibration instructions are very similar. A few changes are:
+
+1. To specify the board size, use `'*'` instead of `'x'`
+2. This is not really a change, but a note. If you launched multiple device, you need to specify which one you would like to calibrate, `master` or `sub`, which is the `ns` specificed in the launch file. If you just launched `driver.launch` without modification, then don't add `master` at the end.
+3. New functionality: you can specifiy the diplay image size by setting, for example, colorDispResize=0.65 so that the image is 0.65 of the original size of the color image, and irDispResize=0.5 of the size of the ir image. A number smaller than 1 means a smaller image, and a number larger than 1 means a larger image is wanted.
+4. New functionality: a simple mode has been added as the calibration mode. Originally, the intrinsics of the color and ir cameras need images different from the extrinsics calibration (e.g., sync). In the simple mode, the intrinsics of the calibration of the color and ir could use the images from sync, and no longer need additional images. This could make the calibration faster since less images are needed. However, this may lead to worse result. As the color and ir cameras may have different views, the images works for both cameras may lead to biased results for intrinsics calibration (e.g., certain part the color/ir images doesn't have points due to the different views between the two cameras). Therefore, if you need accurate calibration, the simple mode is **NOT** recommended. **WARNING: ONLY USE THE SIMPLE MODE IF YOU UNDERSTAND THE CONSEQUENCES.**
+
+Here are the commands that corresponds to the *Detailed Steps* in the kinect One instruction (e.g., use th original mode).
 
 0. To start the device, use the above code if you followed the this instructions, or just launch the `driver.launch` in Azure_Kinect_ROS_Driver if you only need to start one device.
 1. `mkdir ~/kinect_cal_data; cd ~/kinect_cal_data`
-2. `rosrun azure_calibration azure_calibration chess9*11*0.02 record color master`. Note: we use `*` instead of `x`. If you launched multiple device, you need to specify which one you would like to calibrate, `master` or `sub`, which is the `ns` specificed in the launch file. If you just launched `driver.launch` without modification, then don't add `master` at the end.
+2. `rosrun azure_calibration azure_calibration chess9*11*0.02 colorDispResize=0.65 record color master`.
 3. `rosrun azure_calibration azure_calibration chess9*11*0.02 calibrate color`
-4. `rosrun azure_calibration azure_calibration chess9*11*0.02 record ir master`
+4. `rosrun azure_calibration azure_calibration chess9*11*0.02 irDispResize=0.5 record ir master`
 5. `rosrun azure_calibration azure_calibration chess9*11*0.02 calibrate ir`
-6. `rosrun azure_calibration azure_calibration chess9*11*0.02 record sync master`
+6. `rosrun azure_calibration azure_calibration chess9*11*0.02 colorDispResize=0.65 irDispResize=0.5 record sync master`
 7. `rosrun azure_calibration azure_calibration chess9*11*0.02 calibrate sync`
 8. `rosrun azure_calibration azure_calibration chess9*11*0.02 calibrate depth`
+
+Here are the steps if you wish to use the simple mode:
+
+0. To start the device, use the above code if you followed the this instructions, or just launch the `driver.launch` in Azure_Kinect_ROS_Driver if you only need to start one device.
+1. `mkdir ~/kinect_cal_data; cd ~/kinect_cal_data`
+2. `rosrun azure_calibration azure_calibration chess9*11*0.02 colorDispResize=0.65 irDispResize=0.5 record sync master`
+3. `rosrun azure_calibration azure_calibration chess9*11*0.02 calibrate simple`. It will first calibrate the color camera, then the ir camera, then the extrinsics between the two, and then calibrate depth.
 
 Other tips I found useful for calibration:
 - <https://stackoverflow.com/questions/12794876/how-to-verify-the-correctness-of-calibration-of-a-webcam/12821056#12821056>
