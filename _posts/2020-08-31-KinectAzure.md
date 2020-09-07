@@ -205,7 +205,7 @@ Licensed under the MIT License.
   <arg name="sub_wired_sync_mode" default="2"/>                       <!-- Wired sync mode. 0: OFF, 1: MASTER, 2: SUBORDINATE. --> 
   <arg name="subordinate_delay_off_master_usec" default="160"/>     <!-- Delay subordinate camera off master camera by specified amount in usec. --> 
 
-  <node pkg="azure_kinect_ros_driver" type="node" name="azure_kinect_ros_driver_master" output="screen" required="$(arg required)">
+  <node pkg="azure_kinect_ros_driver" type="node" name="azure_kinect_ros_driver_master" output="screen" required="$(arg required)" ns="master">
     <param name="depth_enabled"     type="bool"   value="$(arg depth_enabled)" />
     <param name="depth_mode"        type="string" value="$(arg depth_mode)" />
     <param name="color_enabled"     type="bool"   value="$(arg color_enabled)" />
@@ -228,7 +228,7 @@ Licensed under the MIT License.
     <param name="subordinate_delay_off_master_usec" type="int" value="0"/>
   </node>
 
-  <node pkg="azure_kinect_ros_driver" type="node" name="azure_kinect_ros_driver_sub" output="screen" required="$(arg required)">
+  <node pkg="azure_kinect_ros_driver" type="node" name="azure_kinect_ros_driver_sub" output="screen" required="$(arg required)" ns="sub">
     <param name="depth_enabled"     type="bool"   value="$(arg depth_enabled)" />
     <param name="depth_mode"        type="string" value="$(arg depth_mode)" />
     <param name="color_enabled"     type="bool"   value="$(arg color_enabled)" />
@@ -261,6 +261,26 @@ Test it by running `roslaunch azure_kinect_ros_driver multi_device_driver.launch
 ```
 
 You can safely ignore the error as mentioned in <https://github.com/microsoft/Azure_Kinect_ROS_Driver/issues/97>.
+
+## Calibration (In Progress)
+
+The factory calibration do not seem to be ideal, if a hand--eye calibration or multi--azure calibration is needed, it may be necessary to recalibrate the device. 
+
+To calibrate the device, please get the code from: <https://github.com/ScazLab/azure_customize_calibration>. The code is adapted from Kinect One's calibration code from: <https://github.com/code-iai/iai_kinect2/tree/master/kinect2_calibration>, since the two device uses similar techniques for depth perception. Therefore, the calibration instructions are very similar. Here are the commands that corresponds to the *Detailed Steps* in the kinect One instruction.
+
+0. To start the device, use the above code if you followed the this instructions, or just launch the `driver.launch` in Azure_Kinect_ROS_Driver if you only need to start one device.
+1. `mkdir ~/kinect_cal_data; cd ~/kinect_cal_data`
+2. `rosrun azure_calibration azure_calibration chess9*11*0.02 record color master`. Note: we use `*` instead of `x`. If you launched multiple device, you need to specify which one you would like to calibrate, `master` or `sub`, which is the `ns` specificed in the launch file. If you just launched `driver.launch` without modification, then don't add `master` at the end.
+3. `rosrun azure_calibration azure_calibration chess9*11*0.02 calibrate color`
+4. `rosrun azure_calibration azure_calibration chess9*11*0.02 record ir master`
+5. `rosrun azure_calibration azure_calibration chess9*11*0.02 calibrate ir`
+6. `rosrun azure_calibration azure_calibration chess9*11*0.02 record sync master`
+7. `rosrun azure_calibration azure_calibration chess9*11*0.02 calibrate sync`
+8. `rosrun azure_calibration azure_calibration chess9*11*0.02 calibrate depth`
+
+Other tips I found useful for calibration:
+- <https://stackoverflow.com/questions/12794876/how-to-verify-the-correctness-of-calibration-of-a-webcam/12821056#12821056>
+- <https://stackoverflow.com/questions/60553097/opencv-calibratecamera-function-yielding-bad-results>
 
 ## References
 
