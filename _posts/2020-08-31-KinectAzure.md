@@ -262,9 +262,15 @@ Test it by running `roslaunch azure_kinect_ros_driver multi_device_driver.launch
 
 You can safely ignore the error as mentioned in <https://github.com/microsoft/Azure_Kinect_ROS_Driver/issues/97>.
 
-## Calibration (In Progress)
+## Calibration
 
-The factory calibration do not seem to be ideal, if a hand--eye calibration or multi--azure calibration is needed, it may be necessary to recalibrate the device. 
+~~The factory calibration do not seem to be ideal, if a hand--eye calibration or multi--azure calibration is needed, it may be necessary to recalibrate the device.~~
+
+I took almost 200 images to calibrate the color image (e.g., a straigh line at the edge is curved), but the result does seem to be as good as the factory calibrated result. One thing to note that aruco only uses the plumb_bob distortion model which takes an array of distortion coefficient with size 5. Azure uses a different distortion model which requires an array with size of 9. The last few coefficients cannot be simply chopped off. To work with aruco, use image_proc nodelet to convert the image to rectified images and then feed it to aruco. image_proc can take both plumb_bob (size 5) and the rotational model (size 9). If rectifying the depth image in the depth frame is needed, set interpolatin to 0 according this thread <https://github.com/microsoft/Azure_Kinect_ROS_Driver/issues/103>.
+
+After some investigation, it turned out we are not alone to find out the inaccuracy of the depth perception from ToF device. The inaccuracy of the depth perception is likely due to the materials of the objects. This thread <https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1341> and this thread <https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/803> elaborated on this more. More information about the comparison between cameras using different depth perception techniques can be found here: <https://roscon.ros.org/2017/presentations/ROSCon%202017%203D%20Vision%20Technology.pdf>, and <https://www.revopoint3d.com/comparing-three-prevalent-3d-imaging-technologies-tof-structured-light-and-binocular-stereo-vision/> .
+
+That being said, if you still would like to calibrate the device yourself, the following source code has been tested and could serve the function.
 
 To calibrate the device, please get the code from: <https://github.com/ScazLab/azure_customize_calibration>. The code is adapted from Kinect One's calibration code from: <https://github.com/code-iai/iai_kinect2/tree/master/kinect2_calibration>, since the two device uses similar techniques for depth perception. Therefore, the calibration instructions are very similar. A few changes are:
 
