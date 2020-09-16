@@ -276,14 +276,14 @@ To calibrate the device, please get the code from: <https://github.com/ScazLab/a
 Here are the commands that corresponds to the *Detailed Steps* in the kinect One instruction (e.g., use th original mode).
 
 0. To start the device, use the above code if you followed the this instructions, or just launch the `driver.launch` in Azure_Kinect_ROS_Driver if you only need to start one device.
-1. `mkdir ~/kinect_cal_data; cd ~/kinect_cal_data`
-2. `rosrun azure_calibration azure_calibration chess9*11*0.02 colorDispResize=0.65 record color master`.
-3. `rosrun azure_calibration azure_calibration chess9*11*0.02 calibrate color`
-4. `rosrun azure_calibration azure_calibration chess9*11*0.02 irDispResize=0.5 record ir master`
-5. `rosrun azure_calibration azure_calibration chess9*11*0.02 calibrate ir`
-6. `rosrun azure_calibration azure_calibration chess9*11*0.02 colorDispResize=0.65 irDispResize=0.5 record sync master`
-7. `rosrun azure_calibration azure_calibration chess9*11*0.02 calibrate sync`
-8. `rosrun azure_calibration azure_calibration chess9*11*0.02 calibrate depth`
+1. `mkdir ~/azure_cal_data; cd ~/azurecal_data`
+2. `rosrun azure_calibration azure_calibration chess5*7*0.03 colorDispResize=0.65 record color master`.
+3. `rosrun azure_calibration azure_calibration chess5*7*0.03 calibrate color`
+4. `rosrun azure_calibration azure_calibration chess5*7*0.03 irDispResize=0.5 record ir master`
+5. `rosrun azure_calibration azure_calibration chess5*7*0.03 calibrate ir`
+6. `rosrun azure_calibration azure_calibration chess5*7*0.03 colorDispResize=0.65 irDispResize=0.5 record sync master`
+7. `rosrun azure_calibration azure_calibration chess5*7*0.03 calibrate sync`
+8. `rosrun azure_calibration azure_calibration chess5*7*0.03 calibrate depth`
 
 Here are the steps if you wish to use the simple mode:
 
