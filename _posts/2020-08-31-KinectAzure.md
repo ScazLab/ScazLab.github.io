@@ -304,7 +304,7 @@ Other tips I found useful for calibration:
 
 ## Toubleshooting
 
-# Cannot start device or view the image
+### Cannot start device or view the image
 
 You may need to update the video card driver.
 
