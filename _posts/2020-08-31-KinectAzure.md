@@ -302,6 +302,12 @@ Other tips I found useful for calibration:
 - <https://stackoverflow.com/questions/12794876/how-to-verify-the-correctness-of-calibration-of-a-webcam/12821056#12821056>
 - <https://stackoverflow.com/questions/60553097/opencv-calibratecamera-function-yielding-bad-results>
 
+## Toubleshooting
+
+# Cannot start device or view the image
+
+You may need to update the video card driver.
+
 ## References
 
 Azure documentation: <https://azure.microsoft.com/en-us/services/kinect-dk/>
