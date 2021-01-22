@@ -45,4 +45,4 @@ Welcome to the Setup and Startup Guide for the Stretch Robot.
 
 ## Contributing
 
-To contribute to this page, make changes here: https://github.com/ScazLab/ScazLab.github.io/blob/master/_posts/2021-01-22-Stretch_Robot.md
+To contribute to this page, make changes [here](https://github.com/ScazLab/ScazLab.github.io/blob/master/_posts/2021-01-22-Stretch_Robot.md)
