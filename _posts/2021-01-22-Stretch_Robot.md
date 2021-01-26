@@ -36,6 +36,9 @@ Welcome to the Setup and Startup Guide for the Stretch Robot.
 - Launch On-board RealSense Camera  
 ``` roslaunch stretch_core d435i_high_resolution.launch ```
 
+- Teleoperate Stretch using Keyboard  
+``` roslaunch stretch_core keyboard_teleop.launch ```
+
 ## References
 
 - [Starting up instructions and best practices](https://docs.hello-robot.com/quick_start_guide/)
