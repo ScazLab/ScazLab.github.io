@@ -39,11 +39,15 @@ Welcome to the Setup and Startup Guide for the Stretch Robot.
 - Teleoperate Stretch using Keyboard  
 ``` roslaunch stretch_core keyboard_teleop.launch ```
 
+## Troubleshooting
+ - `Transport Error` - [Official Troubleshooting Guide](https://docs.hello-robot.com/troubleshooting_guide/) 
+ - `<part> not calibrated` - Run `python stretch_robot_home.py`
+
 ## References
 
 - [Starting up instructions and best practices](https://docs.hello-robot.com/quick_start_guide/)
 - [Battery Charger Manual](https://no.co/media/nocodownloads/format/g/e/genius10na_user_guide_1.pdf)
-- [Troubleshooting `Transport Error` ](https://docs.hello-robot.com/troubleshooting_guide/)
+
 
 
 ## Contributing
