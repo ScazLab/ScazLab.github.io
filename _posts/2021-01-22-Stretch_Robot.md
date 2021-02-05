@@ -39,6 +39,10 @@ Welcome to the Setup and Startup Guide for the Stretch Robot.
 - Teleoperate Stretch using Keyboard  
 ``` roslaunch stretch_core keyboard_teleop.launch ```
 
+## Stretch API related stuff
+
+- To refer to and edit robot parameters, make changes to `/stretch_user/stretch-re1-1031/stretch_re1_factory_params.yaml`
+
 ## Troubleshooting
  - `Transport Error` - [Official Troubleshooting Guide](https://docs.hello-robot.com/troubleshooting_guide/) 
  - `<part> not calibrated` - Run `python stretch_robot_home.py`
