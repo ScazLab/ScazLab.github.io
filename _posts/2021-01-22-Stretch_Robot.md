@@ -46,6 +46,7 @@ Welcome to the Setup and Startup Guide for the Stretch Robot.
 ## Troubleshooting
  - `Transport Error` - [Official Troubleshooting Guide](https://docs.hello-robot.com/troubleshooting_guide/) 
  - `<part> not calibrated` - Run `stretch_robot_home.py`
+ - `Timeout when sending goal` -  Run `stretch_robot_home.py` and checkout this [forum post](https://forum.hello-robot.com/t/robot-entered-standby-mode-top-white-button-blinking-during-teleoperation-through-web-interface/85)
 
 ## References
 
