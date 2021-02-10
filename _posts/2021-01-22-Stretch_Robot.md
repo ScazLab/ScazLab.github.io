@@ -45,7 +45,7 @@ Welcome to the Setup and Startup Guide for the Stretch Robot.
 
 ## Troubleshooting
  - `Transport Error` - [Official Troubleshooting Guide](https://docs.hello-robot.com/troubleshooting_guide/) 
- - `<part> not calibrated` - Run `python stretch_robot_home.py`
+ - `<part> not calibrated` - Run `stretch_robot_home.py`
 
 ## References
 
