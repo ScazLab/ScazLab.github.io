@@ -10,7 +10,11 @@ permalink: dissertation_guide.html
 excerpt_separator: <!-- More -->
 ---
 
-Welcome to the Dissertation Guide. This guide is accurate as of **July 21st, 2022**. Please feel free to modify this file (and the **date**!!) to reflect the most up-to-date policy. 
+Welcome to the Dissertation Guide.
+
+<!-- More -->
+
+This guide is accurate as of **July 21st, 2022**. Please feel free to modify this file (and the **date**!!) to reflect the most up-to-date policy. 
 
 # Dissertation
 
