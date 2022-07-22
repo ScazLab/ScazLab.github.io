@@ -71,6 +71,8 @@ The abstract
 
 # Submission
 
+**Do not follow these instructions yet! I need to confirm the correctness of them!!!**
+
 The dissertation is submitted via the DPRS system (<https://dissertation.yale.edu/dprs/> (click *Degree Petition and Dissertation Submission*), the website where you complete the yearly reports) after your committee approve it, normally after your defense. Make sure you have your committee sign the *Computer Science Defense Form* at <https://cpsc.yale.edu/academics/graduate-program/doctor-philosophy/cs-student-milestones>, and send it to the department registrar. Here is more information about submitting the dissertation (<https://registrar.yale.edu/students/dissertation-submission>), and an accompanying video <https://www.youtube.com/watch?v=QWkE4JrYRPo>. You don't need to submit a physical copy.
 
 In DPRS, if you plan to complete the GSAS Exit Survey, the survey can be found (after you click the link and log in) your initial on the top right corner -> Surveys -> Yale Graduate School: Exit Survey.
