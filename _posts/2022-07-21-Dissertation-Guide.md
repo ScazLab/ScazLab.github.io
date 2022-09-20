@@ -14,7 +14,7 @@ Welcome to the Dissertation Guide.
 
 <!-- More -->
 
-This guide is accurate as of **July 21st, 2022**. Please feel free to modify this file (and the **date**!!) to reflect the most up-to-date policy. 
+This guide is accurate as of **September 19th, 2022**. Please feel free to modify this file (and the **date**!!) to reflect the most up-to-date policy. 
 
 # Dissertation
 
@@ -38,7 +38,7 @@ Dissertations from previous lab members can be found here: <https://scazlab.yale
 
 # Defense
 
-Notifications should be sent to the department 30 days and 7 days before the defense date. More information can be found under *Computer Science Dissertation Defense and Submittal* at: <https://cpsc.yale.edu/academics/graduate-program/doctor-philosophy/cs-student-milestones>. You should get Scaz's approval to set the date. The classroom can be booked 
+Notifications should be sent to the department 30 days and 7 days before the defense date. More information can be found under *Computer Science Dissertation Defense and Submittal* at: <https://cpsc.yale.edu/academics/graduate-program/doctor-philosophy/cs-student-milestones>. You should get Scaz's approval to set the date. The classroom can be booked via the department website (https://cpsc.yale.edu/internal-cs-only -> AKW Online Room Reservations). 
 
 The notification is the dissertation emails that you may have seen. Here is a template if you need it:
 
@@ -69,14 +69,18 @@ NAME OF COMMITTEE MEMBER THREE (INSTITUTION if external)
 **Abstract**:
 The abstract
 
+**At your defense, make sure you have your committee sign the *Computer Science Defense Form* at <https://cpsc.yale.edu/academics/graduate-program/doctor-philosophy/cs-student-milestones>, and send it to the department registrar.**
+
 # Submission
 
-**Do not follow these instructions yet! I need to confirm the correctness of them!!!**
-
-The dissertation is submitted via the DPRS system (<https://dissertation.yale.edu/dprs/> (click *Degree Petition and Dissertation Submission*), the website where you complete the yearly reports) after your committee approve it, normally after your defense. Make sure you have your committee sign the *Computer Science Defense Form* at <https://cpsc.yale.edu/academics/graduate-program/doctor-philosophy/cs-student-milestones>, and send it to the department registrar. Here is more information about submitting the dissertation (<https://registrar.yale.edu/students/dissertation-submission>), and an accompanying video <https://www.youtube.com/watch?v=QWkE4JrYRPo>. You don't need to submit a physical copy.
+The submission of the dissertation is usually after the defense, where you will receive many nice feedback. The dissertation is submitted via the DPRS system (<https://dissertation.yale.edu/dprs/> (click *Degree Petition and Dissertation Submission*), the website where you complete the yearly reports) after your committee approve it, normally after your defense. Here is more information about submitting the dissertation (<https://registrar.yale.edu/students/dissertation-submission>), and an accompanying video <https://www.youtube.com/watch?v=QWkE4JrYRPo>. You don't need to submit a physical copy. You also need to fill in the Notification of Readers and wait for the approval from DGS.
 
 In DPRS, if you plan to complete the GSAS Exit Survey, the survey can be found (after you click the link and log in) your initial on the top right corner -> Surveys -> Yale Graduate School: Exit Survey.
 
-# Gradudation
+The dissertation should be submitted before the deadline. Your committee members will then have one month to provide a report. The report does not need to be submitted prior to the deadline.
+
+# Graduation
+
+**Information in this paragraph is for references ONLY! Please confirm with the department registrar or related department.** If you plan to submit your dissertation in the middle of a term, you do not need to make any changes. However, if, for example, you plan to submit it in the next semester (e.g., submit in September), then you might want to consider whether you want to register for the next semester. You can choose not to register at all. Or you can choose to register with the dissertation completion status. This status will grant you permission to continue to access buildings, VPNs etc, which will not be provided if you choose not to register. This status, however, does not give you medical insurance (Note: the medical insurance ends in end of July, rather than end of August if you do not register the fall term. If you visit Yale Health in August, you might be charged retropectively!) and may discontinue your visa (please consult with OISS).
 
 TODO
